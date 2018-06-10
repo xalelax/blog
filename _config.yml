@@ -16,8 +16,9 @@
 title: Alessandro Angioi
 email: alessandro.angioi@hotmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  My personal site/blog. Mainly about science, technology.
-  No topic is odd enough to be discussed here.
+  My personal site/blog. Mainly about science, technology, and coding.
+  Expect some rocketry, music, and literature too.
+  As a general rule, no topic is too odd to be discussed here.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "www.angioi.com" # the base hostname & protocol for your site, e.g. http://example.com
 
