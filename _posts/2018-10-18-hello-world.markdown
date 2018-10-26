@@ -10,7 +10,7 @@ Although during the last four years I dedicated most of my time studying a very
 specific topic (Quantum Electrodynamics),
 I am curious about a quite broad range of topics. I decided to start this blog
 because I want to share my ideas and my projects with the world, and
-receive some feedback about what am I doing.
+receive some feedback about what I am doing.
 I want this site to be my personal sketchbook/lab notebook, and I decided
 to open it to everybody.
 
