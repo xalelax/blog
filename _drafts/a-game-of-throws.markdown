@@ -15,20 +15,34 @@ intuitively) with the math knowledge of a high-school student.
 
 When we started reviewing together the basics of combinatorial calculus
 (possibly one of my favourite topics in mathematics) I started assigning
-him some exercises. At some point, I assigned him the following innocuous
+him some exercises, which more often than not I would invent on the spot.
+At some point, I assigned him the following innocuous
 looking problem:
 
->Suppose you throw a die N times, with N larger than two. What is the probability
->that at some point in the sequence of throws you obtain two sixes in a row.
+> Suppose you are playing a game where you throw a die \(N\) times, with \(N\) larger than two,
+> and you win if in the sequence of throws you obtain at least two sixes in a row.
+> What's the probability to get such a winning sequence?
 
-In order to solve this problem, one needs to count all the sequences of N throws
-which contain at least two sixes in a row, such as
+For instance, a winning sequence would be
 
 %todo: immagine
 
-and divide that number by 6^N, the total number of sequences of N throws of a die.
+whereas a losing one is 
 
-The first solution my student proposed me was the following: let us represent the
+%todo: immagine
+
+For reasonably small values of \(N\), a computer can quickly enumerate every possible sequence
+of throws, and from that it is possible to calculate a probability. For larger
+values of \(N\), instead, it is trivial to find an approximate solution using a
+Monte Carlo technique: just build sequences of throws at random and divide the number of
+winning ones by the number of total sequences generated.
+
+Is it possible, however, to find an analytical solution to this problem?
+In order to do it, one should be able to count all the sequences of \(N\) throws
+which contain at least two sixes in a row
+and divide that number by \(6^N\), the total number of sequences of \(N\) throws of a die.
+
+The first solution my student proposed me was along the following lines: let us represent the
 sequence of throws as a table such as
 
 %todo: immagine
@@ -41,18 +55,92 @@ but starting from the second throws, and so on until the sequence is at the end.
 
 (here, an asterisk represents an arbitrary outcome for the die throw).
 
-In this way, one could think that the total number of sequences with two sixes in a
-row are (N-1) 6^(N-2). Thus, the answer to the problem seems
-P_1(N) = (N-1)6^(N-2)/6^N = (N-1)/36. This, however, cannot be the true solution, because
-probabilities must be smaller than one, while P_1(N) becomes larger than one for
-N larger than 37. This suggests that the solution is wrong and is, in fact,
-a symptom of double-counting. It's easy to see what's wrong with this solution if we consider
-the example N = 3.
+In this way, one could think that the total number of winning sequences
+are \((N-1) 6^(N-2)\). Thus, the answer to the problem seems
+$$P_{\text{wrong}}(N) = \frac{(N-1)6^(N-2)}{6^N }= \frac{N-1}{36}. \tag{1}$$
+This, however, cannot be the true solution, because
+probabilities must be smaller than one, while \(P_1(N)\) becomes larger than one for
+\(N\) larger than \(37\). This suggests that the solution is wrong and is, in fact,
+a symptom of double-counting. It's easy to see what's wrong with this solution if we
+enumerate explicitly all the possible sequences for N = 3.
 
 %todo: immagine
 %todo: finire spiegazione
 
-Thus, we need a different strategy to count; a method which I particularly like is to
-build the solution inductively! 
+Thus, we need a different strategy to count. It is not really easy to fix the initially-proposed
+method, so let's start from scratch: we will build the solution inductively!
+Assume that we already know that for \(N\)
+throws there are \(A (N) \) possible sequences which contain two sixes in a row;
+how does this number change when we throw the die one extra time?
+
+%todo: immagine
+
+Of course, if we already had a winning sequence,
+whatever outcome we have on the new throw will result in a winning sequence;
+since there are six possible outcomes, we have \(6 A(N) \) sequences of this kind.
+
+Moreover, in some cases a new throw can create new winning sequences! In
+fact, if we had a losing sequence which ended with a \(6\), if the new throw results in
+a \(6\) we will obtain a winning sequence. Graphically, we have
+
+%todo: immagine
+
+How many such sequences do we have? Well, since the last two throws must be fixed (i.e.,
+two sixes) we only need to calculate the number of
+losing sequences of size \(N-1\); this number is given by subtracting \(A(N-1)\), the number
+of winning sequences of size \(N-1\), from \(6^N\), the number of
+total sequences of size \(N-1\).
+
+As a result, we obtain the following equation for the total number of winning sequences
+in \(N+1) throws:
+$$ A(N+1) = 6 A(N) + 6^N - A(N-1) \tag{2}$$
+
+This is starting to look quite nice: if we calculate by brute force two consecutive values
+of \(A(N)\), for instance \(A(2) = 1\) and \(A(3) = 11\), we can get every following value
+of \(A(N)\) by successive applications of Equation 2. For large values of \(N\), it is
+**MUCH** more easy to evaluate \(N\) times Equation 2 rather than building each of the \(6^N\)
+sequences.
+
+| \(N\) | \(A(N)\) |
+|-------|----------|
+|     2 | 1        |
+|     3 | 11       |
+|     4 | 101      |
+|     5 | 811      |
+|     6 | 6061     |
+|     7 | 43331    |
+
+
+But this is not over; we can do better! It is actually possible to ``solve'' Equation 2
+for \(A(N)\), and get immediately the answer to the starting problem. I will not delve
+into detail here, but it is easy to check that the solution is
+
+$$ A(N) = 6^N +\frac{5}{2} (3-2\sqrt{2})^N (1+\sqrt{2})
+   	      +\frac{5}{2} (3+2\sqrt{2})^N (1-\sqrt{2}). \tag{3}$$
+
+Notice how we have an apparently complicated combination of sums of powers of irrational
+numbers, and yet \(A(N)\) is always an integer number, because it satisfies Equation 3!
+Small wonders of mathematics ¯\_(ツ)_/¯
+
+
+And so, the probability of winning at the game of throws is
+
+$$P(N) = \frac{A(N)}{6^N }\tag{4}$$
+
+Notice especially that the asymptotic behaviour is correct this time: for very large \(N\),
+we can approximate \(A(N)\) as \(A(N) \approx 6^N\), thus the probability of winning
+approaches one, as one could expect intuitively.
+
+%todo: plot
+
+It is interesting to see that for small number of throws the above mentioned
+double counting problem is not severe, so for \(N \lessim 10\) the ``probability''
+\(P_{\text{wrong}}(N)\) could still be a useful estimate.
+
+Overall, I think it was a great exercise; it allowed me (and especially my student) to
+do quite nice calculations, both analytically and numerically, on an applied problem,
+and learn how to solve recurrence equations, which can be much more easy to understand
+by a high school student with respect to differential equations while sharing with them
+quite some properties.
 
 
