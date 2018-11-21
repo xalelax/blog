@@ -76,13 +76,13 @@ Of course, if we already had a winning sequence,
 whatever outcome we have on the new throw will result in a winning sequence;
 since there are six possible outcomes, we have \(6 A(N) \) sequences of this kind.
 
-%todo: immagine
+![](/assets/pics/dices/correctA.svg)
 
 Moreover, in some cases a new throw can create new winning sequences! In
 fact, if we had a losing sequence which ended with a \(6\), if the new throw results in
 a \(6\) we will obtain a winning sequence. Graphically, we have
 
-%todo: immagine
+![](/assets/pics/dices/correctB.svg)
 
 How many such sequences do we have? Well, since the last two throws must be fixed (i.e.,
 two sixes) we only need to calculate the number of
@@ -119,7 +119,7 @@ $$ A(N) = 6^N +\frac{5}{2} (3-2\sqrt{2})^N (1+\sqrt{2})
 
 Notice how we have an apparently complicated combination of sums of powers of irrational
 numbers, and yet \(A(N)\) is always an integer number, because it satisfies Equation 3!
-Small wonders of mathematics ¯\_(ツ)_/¯
+Small wonders of mathematics ¯\\_(ツ)_/¯
 
 
 And so, the probability of winning at the game of throws is
@@ -130,8 +130,7 @@ Notice especially that the asymptotic behaviour is correct this time: for very l
 we can approximate \(A(N)\) as \(A(N) \approx 6^N\), thus the probability of winning
 approaches one, as one could expect intuitively.
 
-![Plot of the probability of winning as a function of the number of throws]
-(/assets/pics/dices/plot.svg)
+![Plot of the probability of winning as a function of the number of throws](/assets/pics/dices/plot.svg)
 
 It is interesting to see that for small number of throws the above mentioned
 double counting problem is not severe, so for \(N \lessim 10\) the ``probability''
