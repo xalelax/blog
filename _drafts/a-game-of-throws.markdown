@@ -100,14 +100,14 @@ of \(A(N)\) by successive applications of Equation 2. For large values of \(N\),
 **MUCH** more easy to evaluate \(N\) times Equation 2 rather than building each of the \(6^N\)
 sequences.
 
-| \(N\) | \(A(N)\) |
-|-------|----------|
-|     2 | 1        |
-|     3 | 11       |
-|     4 | 101      |
-|     5 | 811      |
-|     6 | 6061     |
-|     7 | 43331    |
+| \(N\) | \(A(N)\) | \(6^N\)|
+|-------|----------|--------|
+|     2 | 1        |  36    |
+|     3 | 11       |  216   |
+|     4 | 101      |  1296  |
+|     5 | 811      |  7776  |
+|     6 | 6061     |  46656 |
+|     7 | 43331    |  279936|
 
 
 But this is not over; we can do better! It is actually possible to ``solve'' Equation 2
