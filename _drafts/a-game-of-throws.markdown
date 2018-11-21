@@ -23,11 +23,8 @@ looking problem:
 > and you win if in the sequence of throws you obtain at least two sixes in a row.
 > What's the probability to get such a winning sequence?
 
-For instance, a winning sequence would be
-
-%todo: immagine
-
-whereas a losing one is 
+For instance,  1**66**45 is a winning sequence, 
+whereas 65626 is a losing one.
 
 %todo: immagine
 
@@ -42,22 +39,19 @@ In order to do it, one should be able to count all the sequences of \(N\) throws
 which contain at least two sixes in a row
 and divide that number by \(6^N\), the total number of sequences of \(N\) throws of a die.
 
-The first solution my student proposed me was along the following lines: let us represent the
-sequence of throws as a table such as
+The first solution my student proposed me was along the following lines: let us
+count the number of sequences we have when we fix the initial throws to be two sixes,
+and let the other ones be arbitrary.
+We can then move the sequence of two sixes to be not at the beginning,
+but starting from the second throw, and so on until the sequence is at the end.
 
 %todo: immagine
 
-Then, we can fix the initial throws to be two sixes, and the other ones are
-arbitrary. We can then move the sequence of two sixes to be not at the beginning,
-but starting from the second throws, and so on until the sequence is at the end.
-
-%todo: immagine
-
-(here, an asterisk represents an arbitrary outcome for the die throw).
-
+Since we fixed two throws of the die, there are \(N-2\) throws which can yield arbitrary results
+(marked in the figures with asterisks), for a total of 6^{N-2} possibilities.
 In this way, one could think that the total number of winning sequences
-are \((N-1) 6^(N-2)\). Thus, the answer to the problem seems
-$$P_{\text{wrong}}(N) = \frac{(N-1)6^(N-2)}{6^N }= \frac{N-1}{36}. \tag{1}$$
+are \((N-1) 6^{N-2}\). Thus, the answer to the problem seems
+$$P_{\text{wrong}}(N) = \frac{(N-1)6^{N-2}}{6^N }= \frac{N-1}{36}. \tag{1}$$
 This, however, cannot be the true solution, because
 probabilities must be smaller than one, while \(P_1(N)\) becomes larger than one for
 \(N\) larger than \(37\). This suggests that the solution is wrong and is, in fact,
@@ -65,7 +59,8 @@ a symptom of double-counting. It's easy to see what's wrong with this solution i
 enumerate explicitly all the possible sequences for N = 3.
 
 %todo: immagine
-%todo: finire spiegazione
+
+By counting twice some combinations, we overestimate our chances to win.
 
 Thus, we need a different strategy to count. It is not really easy to fix the initially-proposed
 method, so let's start from scratch: we will build the solution inductively!
@@ -73,11 +68,11 @@ Assume that we already know that for \(N\)
 throws there are \(A (N) \) possible sequences which contain two sixes in a row;
 how does this number change when we throw the die one extra time?
 
-%todo: immagine
-
 Of course, if we already had a winning sequence,
 whatever outcome we have on the new throw will result in a winning sequence;
 since there are six possible outcomes, we have \(6 A(N) \) sequences of this kind.
+
+%todo: immagine
 
 Moreover, in some cases a new throw can create new winning sequences! In
 fact, if we had a losing sequence which ended with a \(6\), if the new throw results in
