@@ -9,12 +9,12 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="769.78906mm"
+   height="252.50694mm"
+   viewBox="0 0 769.78906 252.50694"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="losing.svg">
   <defs
      id="defs2" />
@@ -26,16 +26,20 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="1.2825503"
-     inkscape:cy="277.82371"
+     inkscape:cx="921.9246"
+     inkscape:cy="448.88612"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1" />
+     inkscape:window-width="1855"
+     inkscape:window-height="1176"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -51,7 +55,8 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(453.75263,-92.770666)">
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -61,7 +66,7 @@
          sodipodi:role="line"
          id="tspan5352"
          x="-93.738091"
-         y="336.89359"
+         y="327.2381"
          style="stroke-width:0.26458332" /></text>
     <text
        xml:space="preserve"
@@ -92,7 +97,7 @@
     </g>
     <g
        id="g4722"
-       transform="translate(-201.43633)">
+       transform="translate(-201.43633,0)">
       <rect
          y="94.490166"
          x="-250.5968"
@@ -139,9 +144,9 @@
     </g>
     <g
        id="g4713"
-       transform="translate(276.69551)">
+       transform="translate(276.69551,0)">
       <g
-         transform="translate(-746.12541)"
+         transform="translate(-746.12541,0)"
          id="g4631">
         <rect
            style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:3.43899989;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -165,7 +170,7 @@
       </g>
     </g>
     <g
-       transform="translate(193.91018)"
+       transform="translate(193.91018,0)"
        id="g4722-8">
       <rect
          y="94.490166"
@@ -213,12 +218,12 @@
     </g>
     <path
        style="fill:#000080;stroke:#000080;stroke-width:6.14044189;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m -451.54656,294.36799 h 172.35719"
+       d="m -451.54656,294.36799 172.35719,0"
        id="path4807"
        inkscape:connector-curvature="0" />
     <path
        style="fill:#000080;stroke:#000080;stroke-width:6.14044189;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M -56.200001,294.36799 H 116.1571"
+       d="m -56.200001,294.36799 172.357101,0"
        id="path4807-6"
        inkscape:connector-curvature="0" />
   </g>

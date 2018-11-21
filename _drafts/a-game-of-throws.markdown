@@ -4,14 +4,14 @@ title:  "A game of throws"
 categories: [math, statistics, science]
 ---
 
-I recently had the chance to mentor a high-school student who was doing
+I recently had the chance to mentor a high school student who was doing
 an internship at the Max Planck institute for Nuclear Physics. Since
 every project related to my actual work would require quite a solid knowledge
 of Quantum Field Theory, we could not do much there together.
 Still, I wanted to give him an idea of how does it feel like to work in
-theoretical physics, I decided to make him work on statistics and
+theoretical physics, I decided to make him work on problems related to statistics and
 Monte Carlo simulations, which are easy enough to understand (at least,
-intuitively) with the math knowledge of a high-school student.
+intuitively) with the math knowledge of a high school student.
 
 When we started reviewing together the basics of combinatorial calculus
 (possibly one of my favourite topics in mathematics) I started assigning
@@ -26,7 +26,7 @@ looking problem:
 For instance,  1**66**45 is a winning sequence, 
 whereas 65626 is a losing one.
 
-%todo: immagine
+![Examples of sequences](/assets/pics/dices/winlose.svg)
 
 For reasonably small values of \(N\), a computer can quickly enumerate every possible sequence
 of throws, and from that it is possible to calculate a probability. For larger
@@ -42,10 +42,14 @@ and divide that number by \(6^N\), the total number of sequences of \(N\) throws
 The first solution my student proposed me was along the following lines: let us
 count the number of sequences we have when we fix the initial throws to be two sixes,
 and let the other ones be arbitrary.
+
+![Sequences where the first two throws result in sixes, while the others are
+arbitrary](/assets/pics/dices/firstmethodA.svg)
+
 We can then move the sequence of two sixes to be not at the beginning,
 but starting from the second throw, and so on until the sequence is at the end.
 
-%todo: immagine
+![Two sixes in a row are fixed, the other throws are arbitrary](/assets/pics/dices/firstmethodB.svg)
 
 Since we fixed two throws of the die, there are \(N-2\) throws which can yield arbitrary results
 (marked in the figures with asterisks), for a total of 6^{N-2} possibilities.
@@ -58,7 +62,7 @@ probabilities must be smaller than one, while \(P_1(N)\) becomes larger than one
 a symptom of double-counting. It's easy to see what's wrong with this solution if we
 enumerate explicitly all the possible sequences for N = 3.
 
-%todo: immagine
+![Example of double counting](/assets/pics/dices/problem.svg)
 
 By counting twice some combinations, we overestimate our chances to win.
 
@@ -126,7 +130,8 @@ Notice especially that the asymptotic behaviour is correct this time: for very l
 we can approximate \(A(N)\) as \(A(N) \approx 6^N\), thus the probability of winning
 approaches one, as one could expect intuitively.
 
-%todo: plot
+![Plot of the probability of winning as a function of the number of throws]
+(/assets/pics/dices/plot.svg)
 
 It is interesting to see that for small number of throws the above mentioned
 double counting problem is not severe, so for \(N \lessim 10\) the ``probability''
@@ -137,5 +142,3 @@ do quite nice calculations, both analytically and numerically, on an applied pro
 and learn how to solve recurrence equations, which can be much more easy to understand
 by a high school student with respect to differential equations while sharing with them
 quite some properties.
-
-
