@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Hello, World!"
+categories: Blog
 ---
 
 Hello everyone!

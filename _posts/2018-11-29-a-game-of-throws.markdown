@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "A game of throws"
+title:  "A Game of Throws"
 labels: [math, statistics, science]
 mathjax: true
+categories: Blog
 ---
 
 I recently had the chance to mentor a high school student who was doing
@@ -27,7 +28,7 @@ looking problem:
 For instance,  1**66**45 is a winning sequence, 
 whereas 65626 is a losing one.
 
-![Examples of sequences](/assets/pics/dices/winlose.svg)
+![Examples of sequences](/assets/pics/dices/winlose.svg){: .center-image}
 
 For reasonably small values of $$N$$, a computer can quickly enumerate every possible sequence
 of throws, and from that it is possible to calculate a probability. For larger
@@ -45,25 +46,28 @@ count the number of sequences we have when we fix the initial throws to be two s
 and let the other ones be arbitrary.
 
 ![Sequences where the first two throws result in sixes, while the others are
-arbitrary](/assets/pics/dices/firstmethodA.svg)
+arbitrary](/assets/pics/dices/firstmethodA.svg){: .center-image}
 
 We can then move the sequence of two sixes to be not at the beginning,
 but starting from the second throw, and so on until the sequence is at the end.
 
-![Two sixes in a row are fixed, the other throws are arbitrary](/assets/pics/dices/firstmethodB.svg)
+![Two sixes in a row are fixed, the other throws are
+arbitrary](/assets/pics/dices/firstmethodB.svg){: .center-image}
 
 Since we fixed two throws of the die, there are $$N-2$$ throws which can yield arbitrary results
-(marked in the figures with asterisks), for a total of 6^{N-2} possibilities.
+(marked in the figures with asterisks), for a total of $$6^{N-2}$$ possibilities.
 In this way, one could think that the total number of winning sequences
 are $$(N-1) 6^{N-2}$$. Thus, the answer to the problem seems
+
 $$P_{\text{wrong}}(N) = \frac{(N-1)6^{N-2}}{6^N }= \frac{N-1}{36}. \tag{1}$$
+
 This, however, cannot be the true solution, because
 probabilities must be smaller than one, while $$P_1(N)$$ becomes larger than one for
 $$N$$ larger than $$37$$. This suggests that the solution is wrong and is, in fact,
 a symptom of double-counting. It's easy to see what's wrong with this solution if we
-enumerate explicitly all the possible sequences for N = 3.
+enumerate explicitly all the possible sequences for $$N = 3$$.
 
-![Example of double counting](/assets/pics/dices/problem.svg)
+![Example of double counting](/assets/pics/dices/problem.svg){: .center-image}
 
 By counting twice some combinations, we overestimate our chances to win.
 
@@ -77,13 +81,13 @@ Of course, if we already had a winning sequence,
 whatever outcome we have on the new throw will result in a winning sequence;
 since there are six possible outcomes, we have $$6 A(N) $$ sequences of this kind.
 
-![](/assets/pics/dices/correctA.svg)
+![](/assets/pics/dices/correctA.svg){: .center-image}
 
 Moreover, in some cases a new throw can create new winning sequences! In
 fact, if we had a losing sequence which ended with a $$6$$, if the new throw results in
 a $$6$$ we will obtain a winning sequence. Graphically, we have:
 
-![](/assets/pics/dices/correctB.svg)
+![](/assets/pics/dices/correctB.svg){: .center-image}
 
 How many such sequences are there? Well, since the last two throws must be fixed (i.e.,
 two sixes) we only need to calculate the number of
@@ -92,7 +96,8 @@ of winning sequences of size $$N-1$$, from $$6^N$$, the number of
 total sequences of size $$N-1$$.
 
 As a result, we obtain the following equation for the total number of winning sequences
-in $$N+1) throws:
+in $$N+1$$ throws:
+
 $$ A(N+1) = 6 A(N) + 6^N - A(N-1) \tag{2}$$
 
 This is starting to look quite nice: if we calculate by brute force two consecutive values
@@ -110,8 +115,7 @@ sequences.
 |     6 | 6061     |  46656 |
 |     7 | 43331    |  279936|
 
-
-But this is not over; we can do better! It is actually possible to ``solve'' Equation 2
+But this is not over; we can do better! It is actually possible to "solve" Equation 2
 for $$A(N)$$, and get immediately the answer to the starting problem. I will not delve
 into detail here, but it is easy to check that the solution is
 
@@ -119,11 +123,11 @@ $$ A(N) = 6^N +\frac{5}{2} (3-2\sqrt{2})^N (1+\sqrt{2})
    	      +\frac{5}{2} (3+2\sqrt{2})^N (1-\sqrt{2}). \tag{3}$$
 
 Notice how we have an apparently complicated combination of sums of powers of irrational
-numbers, and yet $$A(N)$$ is always an integer number, because it satisfies Equation 3!
+numbers, and yet $$A(N)$$ is always an integer number, because it satisfies Eq. (3)!
 Small wonders of mathematics ¯\\_(ツ)_/¯
 
 
-And so, the probability of winning at the game of throws is
+And so, the probability of winning at the Game of Throws is
 
 $$P(N) = \frac{A(N)}{6^N }\tag{4}$$
 
@@ -131,10 +135,11 @@ Notice especially that the asymptotic behaviour is correct this time: for very l
 we can approximate $$A(N)$$ as $$A(N) \approx 6^N$$, thus the probability of winning
 approaches one, as one could expect intuitively.
 
-![Plot of the probability of winning as a function of the number of throws](/assets/pics/dices/plot.svg)
+![Plot of the probability of winning as a function of the
+number of throws](/assets/pics/dices/plot.svg){: .center-image}
 
 It is interesting to see that for small number of throws the above mentioned
-double counting problem is not severe, so for $$N \lessim 10$$ the ``probability''
+double counting problem is not severe, so for $$N < 10$$ the "probability"
 $$P_{\text{wrong}}(N)$$ could still be a useful estimate.
 
 Overall, I think it was a great exercise; it allowed me (and especially my student) to
