@@ -25,7 +25,7 @@ linkedin_username: aleangioi
 
 # Build settings
 markdown: kramdown
-remote_theme: broccolini_minima
+remote_theme: broccolini/swiss
 theme_color: blue
 plugins:
   - jekyll-feed
