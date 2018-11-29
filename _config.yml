@@ -22,6 +22,7 @@ url: "www.angioi.com" # the base hostname & protocol for your site, e.g. http://
 
 github_username:  xalelax
 linkedin_username: aleangioi
+repository: xalelax/blog
 
 # Build settings
 markdown: kramdown
