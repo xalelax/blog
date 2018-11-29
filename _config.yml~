@@ -22,10 +22,11 @@ url: "www.angioi.com" # the base hostname & protocol for your site, e.g. http://
 
 github_username:  xalelax
 linkedin_username: aleangioi
+repository: xalelax/blog
 
 # Build settings
 markdown: kramdown
-remote_theme: broccolini_minima
+remote_theme: broccolini/swiss
 theme_color: blue
 plugins:
   - jekyll-feed
@@ -41,3 +42,5 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+github: [metadata]
