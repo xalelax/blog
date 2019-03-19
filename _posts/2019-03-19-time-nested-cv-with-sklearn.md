@@ -79,16 +79,16 @@ for trainCvIndices, testIndices in trainTestSplit:
                      list(range(trainCvIndices[-testLength],trainCvIndices[-1]+1)))]
     
     # Printing date ranges
-    print("Training interval: "        , XTrainCv.index[0].date(), "--", XTrainCv.index[-testLength-1].date(),
-          ", Cv: "           , XTrainCv.index[-testLength].date(), "--", XTrainCv.index[-1].date(),
-          ", Test: "                      , XTest.index[0].date(), "--", XTest.index[-1].date())
+    print("Training:"           , XTrainCv.index[0].date(), "--", XTrainCv.index[-testLength-1].date(),
+          ", Cv:"     , XTrainCv.index[-testLength].date(), "--", XTrainCv.index[-1].date(),
+          ", Test:"                , XTest.index[0].date(), "--", XTest.index[-1].date())
 ```
 
 Output:
 
-    Training interval:  2018-01-01 -- 2018-03-14 , Cv:  2018-03-15 -- 2018-05-26 , Test:  2018-05-27 -- 2018-08-07
-    Training interval:  2018-01-01 -- 2018-05-26 , Cv:  2018-05-27 -- 2018-08-07 , Test:  2018-08-08 -- 2018-10-19
-    Training interval:  2018-01-01 -- 2018-08-07 , Cv:  2018-08-08 -- 2018-10-19 , Test:  2018-10-20 -- 2018-12-31
+    Training: 2018-01-01 -- 2018-03-14 , Cv: 2018-03-15 -- 2018-05-26 , Test: 2018-05-27 -- 2018-08-07
+    Training: 2018-01-01 -- 2018-05-26 , Cv: 2018-05-27 -- 2018-08-07 , Test: 2018-08-08 -- 2018-10-19
+    Training: 2018-01-01 -- 2018-08-07 , Cv: 2018-08-08 -- 2018-10-19 , Test: 2018-10-20 -- 2018-12-31
     
 
 Notice how we had to skip the first fold given by TimeSeriesSplit, and also how the test set for a fold becomes the CV set in the following one, just as we wanted.
