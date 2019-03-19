@@ -7,7 +7,7 @@ categories: Blog
 
 In this short post, I will show how to perform nested cross-validation on time series data with the scikit-learn 
 function [TimeSeriesSplit](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html);
-this function by default just splits the data into time-ordered Train/Test sets, but we will see that it is easy to bring a Cross-Validation set into the picture. I will also show how this procedure interacts with the `cv` argument that many models in scikit-learn use to perform cross-validation. 
+this function by default just splits the data into time-ordered Train/Test sets, but we will see that it is easy to bring a Cross-Validation set into the picture. I will also show how this procedure interacts with the `cv` argument that many models in scikit-learn can use to perform cross-validation. 
 
 ## Introduction
 
@@ -20,7 +20,7 @@ A more robust solution is to perform an operation analogous to k-fold cross-vali
 
 ![Train/CV/Test](/assets/pics/nestedcv/traincv.svg){: .center-image}
 
-By training and tuning the model on the Train/CV set of each fold, and averaging the errors on the Test sets, we can obtain an almost unbiased estimate of the error ([Varma and Simon 2006](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1397873/)).
+By training and tuning the model on the Train/CV set of each fold, and averaging the errors on the Test sets, we can obtain an "almost unbiased estimate of the error" ([Varma and Simon 2006](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1397873/)).
 
 ## Sample Implementation
 
@@ -101,4 +101,4 @@ The list we stored in `trainCvSplit` can be passed directly as the cv argument o
 modelCV = LassoCV(cv = trainCvSplit).fit(XTrainCv,yTrainCv)
 ```
 
-we will obtain an object which performs Lasso regression; upon calling the .fit() method several models will be trained on the test set we defined, and the one which performs best on the CV set we introduced will be selected.
+we will obtain an object which performs Lasso regression; upon calling the .fit() method several models will be trained on the test set we defined, and the one which performs best on the CV set we introduced will be selected and retrained on the whole Train+CV set.
