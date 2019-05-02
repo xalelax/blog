@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="127.8012mm"
+   height="102.01556mm"
+   viewBox="0 0 127.8012 102.01556"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="traincvtest.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.50000001"
+     inkscape:cx="608.72303"
+     inkscape:cy="-5.9802594"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-13.486345,-12.58587)">
+    <g
+       id="g1188"
+       transform="translate(0,1.0296702e-5)">
+      <rect
+         y="12.790732"
+         x="13.868037"
+         height="25.390257"
+         width="126.57404"
+         id="rect819-1-7-5-7-2"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.40974578;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="12.785921"
+         x="13.686345"
+         height="25.4"
+         width="25.4"
+         id="rect819"
+         style="fill:#a9b3ff;fill-opacity:1;stroke:#000000;stroke-width:0.40000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="12.785931"
+         x="39.086338"
+         height="25.4"
+         width="25.4"
+         id="rect819-6"
+         style="fill:#fffd6e;fill-opacity:1;stroke:#000000;stroke-width:0.40000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="12.785931"
+         x="64.486343"
+         height="25.4"
+         width="25.4"
+         id="rect819-6-6"
+         style="fill:#ff5979;fill-opacity:1;stroke:#000000;stroke-width:0.40000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text1027"
+         y="28.780233"
+         x="15.811746"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="28.780233"
+           x="15.811746"
+           id="tspan1025"
+           sodipodi:role="line">Train</tspan></text>
+      <text
+         id="text1027-3"
+         y="28.780243"
+         x="45.974247"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="28.780243"
+           x="45.974247"
+           id="tspan1025-33"
+           sodipodi:role="line">CV</tspan></text>
+      <text
+         id="text1027-8"
+         y="28.780226"
+         x="69.257591"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="28.780226"
+           x="69.257591"
+           id="tspan1025-2"
+           sodipodi:role="line">Test</tspan></text>
+    </g>
+    <g
+       id="g1201"
+       transform="translate(0,-0.26457304)">
+      <rect
+         y="44.54073"
+         x="13.868037"
+         height="25.390257"
+         width="126.57404"
+         id="rect819-1-7-5-7"
+         style="fill:#a9b3ff;fill-opacity:1;stroke:#000000;stroke-width:0.40974578;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="44.535923"
+         x="64.486343"
+         height="25.4"
+         width="25.4"
+         id="rect819-6-6-4"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.40000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="44.535923"
+         x="89.88633"
+         height="25.4"
+         width="25.4"
+         id="rect819-6-7"
+         style="fill:#ff5979;fill-opacity:1;stroke:#000000;stroke-width:0.40000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="44.535923"
+         x="64.486343"
+         height="25.4"
+         width="25.4"
+         id="rect819-6-6-5"
+         style="fill:#fffd6e;fill-opacity:1;stroke:#000000;stroke-width:0.40000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="44.535931"
+         x="115.28635"
+         height="25.4"
+         width="25.4"
+         id="rect819-6-4-3-2"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.40000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text1027-5"
+         y="60.530304"
+         x="30.308365"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="60.530304"
+           x="30.308365"
+           id="tspan1025-3"
+           sodipodi:role="line">Train</tspan></text>
+      <text
+         id="text1027-3-3"
+         y="60.530243"
+         x="71.374245"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="60.530243"
+           x="71.374245"
+           id="tspan1025-33-3"
+           sodipodi:role="line">CV</tspan></text>
+      <text
+         id="text1027-8-4"
+         y="60.481148"
+         x="94.522774"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="60.481148"
+           x="94.522774"
+           id="tspan1025-2-5"
+           sodipodi:role="line">Test</tspan></text>
+    </g>
+    <g
+       id="g1212"
+       transform="translate(0,6.1005355e-6)">
+      <rect
+         y="75.761551"
+         x="13.868037"
+         height="25.390255"
+         width="126.57403"
+         id="rect819-1-7-5"
+         style="fill:#a9b3ff;fill-opacity:1;stroke:#000000;stroke-width:0.40974578;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="75.756752"
+         x="89.886337"
+         height="25.4"
+         width="25.4"
+         id="rect819-6-4-3"
+         style="fill:#fffd6e;fill-opacity:1;stroke:#000000;stroke-width:0.40000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="75.756752"
+         x="115.28635"
+         height="25.4"
+         width="25.4"
+         id="rect819-6-4-3-2-3"
+         style="fill:#ff5979;fill-opacity:1;stroke:#000000;stroke-width:0.40000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text1027-9"
+         y="91.751144"
+         x="40.97242"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="91.751144"
+           x="40.97242"
+           id="tspan1025-7"
+           sodipodi:role="line">Train</tspan></text>
+      <text
+         id="text1027-9-9"
+         y="91.751144"
+         x="97.064079"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="91.751144"
+           x="97.064079"
+           id="tspan1025-7-5"
+           sodipodi:role="line">CV</tspan></text>
+      <text
+         id="text1027-8-0"
+         y="91.702042"
+         x="119.99892"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="91.702042"
+           x="119.99892"
+           id="tspan1025-2-8"
+           sodipodi:role="line">Test</tspan></text>
+    </g>
+    <g
+       id="g1221"
+       transform="translate(0,-8.4666669)">
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path1214"
+         d="m 13.868037,112.84486 v 7.14889 h 35.344462"
+         style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="56.298473"
+       y="114.50325"
+       id="text1218"><tspan
+         sodipodi:role="line"
+         id="tspan1216"
+         x="56.298473"
+         y="114.50325"
+         style="stroke-width:0.26458332">Total Data</tspan></text>
+    <g
+       id="g1221-8"
+       transform="matrix(-1,0,0,1,155.02329,-8.4666685)">
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path1214-3"
+         d="m 13.868037,112.84486 v 7.14889 h 35.344462"
+         style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>

@@ -33,9 +33,12 @@ from experimental data.
 Aside of the frequentist interpretation, there is another position which is held by many
 scientists which is called Bayesian interpretation. 
 
-# Bayes Theorem
+# Bayes' Theorem
 
-...
+The Bayes' theorem can be derived from the definition of conditional probabilities:
+$$
+P(A|B) = \frac{P(A\cap B)}{P(B)}
+$$
 
 
 # Probing the Paranormal with Experiments
