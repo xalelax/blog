@@ -6,9 +6,24 @@ mathjax: true
 categories: Blog
 ---
 
+Fun fact: Bayes' Theorem,
+arguably one of the most important theorems in statistics,
+was discovered by a presbyterian minister and theologian.
+It should not come as a surprise, then, that it can be
+applied to questions at the fringe of Science and bear
+interesting results.
+
+In particular, in this post I wanted to provide a simple introduction
+to Bayes' Theorem and Bayesian Inference, and show some applications to
+supernatural phenomena; this weird choice of topic is motivated both
+by the alleged motivations behind the discovery of Bayes' Theorem
+and by the fact that supernatural phenomena are more captivating than
+dice throws or other textbook examples ¯\\_(ツ)_/¯
+
 Full disclosure, since for many people this is a delicate argument: **I am not religious** 
-and I **do not** believe in anything supernatural. I will try to avoid strawmanning 
-positions different from mine, but if I do I apologize in advance, and please let me know.
+and I **do not** believe in anything supernatural. **I will try to avoid strawmanning 
+positions different from mine**, but I apologize in advance if I do, and please let me know
+what I got wrong by contacting me or in the comment section.
 
 # Probabilities and Experiments
 
@@ -30,21 +45,35 @@ interpretation of probabilities mostly work with objects such as estimators and 
 to extract as much information as possible from the finite number of samples one can obtain 
 from experimental data.
 
-Aside of the frequentist interpretation, there is another position which is held by many
-scientists which is called Bayesian interpretation. 
+Aside of the frequentist interpretation, there is another view of statistics, held by many
+scientists, which is called Bayesian interpretation. In order to understand it, we need to know
+some things about Bayes' Theorem.
 
 # Bayes' Theorem
 
+The probability of an outcome $A$ given the fact that we know another event $B$ happened
+is called a [conditional probability](https://en.wikipedia.org/wiki/Conditional_probability),
+and is typically written as $P(A|B)$. For definiteness, let's consider a fair die; we know
+that the probability of throwing it and getting a 1 is $$P(\text{Die throw} = 1) = 1/6$$. If
+a friend throws the same die and tells us only that they obtain an odd number,
+the probability that they got a 1 is $$P(\text{Die throw} = 1 | \text{Die throw is odd})$$,
+
+
 The Bayes' theorem can be derived from the definition of conditional probabilities:
 $$
-P(A|B) = \frac{P(A\cap B)}{P(B)}
+P(A|B) = \frac{P(A\cap B)}{P(B)};
 $$
+if one writes also the same expression, but for $$P(B|A)$$, i.e.,
+$$
+P(B|A) = \frac{P(B\cap B)}{P(B)};
+$$
+
 
 
 # Probing the Paranormal with Experiments
 
 How does all this relate to miracles and the supernatural? A lot of historians speculate
-that Bayes and Price, both believers in Christianity (thus, in particular, in the 
+that Bayes and Price, both christians (thus, in particular, they believed in the 
 miracle of the resurrection of Jesus), were assessing claims made by the greatest skeptic of their
 time, David Hume.
 
@@ -72,11 +101,12 @@ make ... equal to zero.
 
 
 
+
 # Conclusion
 
 There is something rather remarkable in the way Bayesian inference ... and 
 the way people reach their conclusions. In this post I presented only a few things,
-but there are even more complex human behaviours (....) which can be beautifully
+but there are even more complex human behaviors (....) which can be beautifully
 interpreted in a Bayesian fashion. Many (...) argued that Bayesian inference
 is ... scientific method. Indeed, scientists more often than not build their set of
 beliefs not really by performing experiments themselves
