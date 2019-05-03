@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  "Hello, World!"
-categories: Blog
+categories: blog
+image: assets/images/keyboard.jpg
 ---
 
 Hello everyone!

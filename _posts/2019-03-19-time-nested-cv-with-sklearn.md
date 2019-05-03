@@ -2,7 +2,8 @@
 layout: post
 title:  "Time Series Nested Cross-Validation with scikit-learn"
 labels: [machine learning, statistics]
-categories: Blog
+categories: [machine learning, statistics]
+image: assets/images/stock.jpg
 ---
 
 In this short post, I will show how to perform nested cross-validation on time series data with the scikit-learn 

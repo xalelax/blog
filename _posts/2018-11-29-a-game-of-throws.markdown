@@ -3,7 +3,8 @@ layout: post
 title:  "A Game of Throws"
 labels: [math, statistics, science]
 mathjax: true
-categories: Blog
+categories: [math, statistics]
+image: assets/images/dice.jpg
 ---
 
 I recently had the chance to mentor a high school student who was doing

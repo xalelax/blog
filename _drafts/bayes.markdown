@@ -4,6 +4,7 @@ title:  "Bayesian Inference and the Supernatural"
 labels: [statistics, philosophy]
 mathjax: true
 categories: Blog
+image: assets/images/ghost.jpg
 ---
 
 Fun fact: Bayes' Theorem,
