@@ -29,7 +29,7 @@ looking problem:
 For instance,  1**66**45 is a winning sequence, 
 whereas 65626 is a losing one.
 
-![Examples of sequences](/assets/pics/dices/winlose.svg){: .center-image}
+![Examples of sequences](/assets/pics/dices/winlose.svg){: class="col-7"}
 
 For reasonably small values of $$N$$, a computer can quickly enumerate every possible sequence
 of throws, and from that it is possible to calculate a probability. For larger
@@ -47,13 +47,13 @@ count the number of sequences we have when we fix the initial throws to be two s
 and let the other ones be arbitrary.
 
 ![Sequences where the first two throws result in sixes, while the others are
-arbitrary](/assets/pics/dices/firstmethodA.svg){: .center-image}
+arbitrary](/assets/pics/dices/firstmethodA.svg){: class="col-7"}
 
 We can then move the sequence of two sixes to be not at the beginning,
 but starting from the second throw, and so on until the sequence is at the end.
 
 ![Two sixes in a row are fixed, the other throws are
-arbitrary](/assets/pics/dices/firstmethodB.svg){: .center-image}
+arbitrary](/assets/pics/dices/firstmethodB.svg){: class="col-7"}
 
 Since we fixed two throws of the die, there are $$N-2$$ throws which can yield arbitrary results
 (marked in the figures with asterisks), for a total of $$6^{N-2}$$ possibilities.
@@ -68,7 +68,7 @@ $$N$$ larger than $$37$$. This suggests that the solution is wrong and is, in fa
 a symptom of double-counting. It's easy to see what's wrong with this solution if we
 enumerate explicitly all the possible sequences for $$N = 3$$.
 
-![Example of double counting](/assets/pics/dices/problem.svg){: .center-image}
+![Example of double counting](/assets/pics/dices/problem.svg){: class="col-7"}
 
 By counting twice some combinations, we overestimate our chances to win.
 
@@ -82,13 +82,13 @@ Of course, if we already had a winning sequence,
 whatever outcome we have on the new throw will result in a winning sequence;
 since there are six possible outcomes, we have $$6 A(N) $$ sequences of this kind.
 
-![](/assets/pics/dices/correctA.svg){: .center-image}
+![](/assets/pics/dices/correctA.svg){: class="col-7"}
 
 Moreover, in some cases a new throw can create new winning sequences! In
 fact, if we had a losing sequence which ended with a $$6$$, if the new throw results in
 a $$6$$ we will obtain a winning sequence. Graphically, we have:
 
-![](/assets/pics/dices/correctB.svg){: .center-image}
+![](/assets/pics/dices/correctB.svg){: class="col-7"}
 
 How many such sequences are there? Well, since the last two throws must be fixed (i.e.,
 two sixes) we only need to calculate the number of
@@ -107,6 +107,7 @@ of $$A(N)$$ by successive applications of Equation 2. For large values of $$N$$,
 **MUCH** more easy to evaluate $$N$$ times Equation 2 rather than building each of the $$6^N$$
 sequences.
 
+{:class="table table-bordered"}
 | $$N$$ | $$A(N)$$ | $$6^N$$|
 |-------|----------|--------|
 |     2 | 1        |  36    |
@@ -137,7 +138,7 @@ we can approximate $$A(N)$$ as $$A(N) \approx 6^N$$, thus the probability of win
 approaches one, as one could expect intuitively.
 
 ![Plot of the probability of winning as a function of the
-number of throws](/assets/pics/dices/plot.svg){: .center-image}
+number of throws](/assets/pics/dices/plot.svg){: class="col-7"}
 
 It is interesting to see that for small number of throws the above mentioned
 double counting problem is not severe, so for $$N < 10$$ the "probability"
