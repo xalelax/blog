@@ -9,7 +9,7 @@ image: assets/images/ghost.jpg
 
 Fun fact: Bayes' Theorem,
 arguably one of the most important theorems in statistics,
-was discovered by a presbyterian minister and theologian.
+was discovered by Reverend Thomas Bayes, a presbyterian minister and theologian.
 It should not come as a surprise, then, that it can be
 applied to questions at the fringe of Science and bear
 interesting results.
@@ -18,8 +18,15 @@ In particular, in this post I wanted to provide a simple introduction
 to Bayes' Theorem and Bayesian Inference, and show some applications to
 supernatural phenomena; this weird choice of topic is motivated both
 by the alleged motivations behind the discovery of Bayes' Theorem
-and by the fact that supernatural phenomena are more captivating than
-dice throws or other textbook examples ¯\\_(ツ)_/¯
+and by the fact that supernatural phenomena and theological problems
+are for a lot of people much more captivating than
+dice throws or other textbook examples
+(to be honest, I never get bored by problems regarding coin tosses or card games ¯\\_(ツ)_/¯ ).
+
+I will start by writing some basic facts about probabilities and Bayes' theorem;
+very likely the more experienced readers will find those sections superfluous,
+and I invite them to skip to the section
+[Probing the Paranormal with Experiments](#paranormal)
 
 Full disclosure, since for many people this is a delicate argument: **I am not religious** 
 and I **do not** believe in anything supernatural. **I will try to avoid strawmanning 
@@ -28,6 +35,7 @@ what I got wrong by contacting me or in the comment section.
 
 # Probabilities and Experiments
 
+Let's start from an apparently elementary concept: the definition of probabilities.
 One way to define the probability of an event is to identify it as the limit of
 the relative frequency of that event with respect to every possible outcome.
 
@@ -35,14 +43,15 @@ For instance, if a coin is thrown $$100$$ times and it lands $$57$$ times on hea
 the relative frequency of heads is $$57/100$$. In order to obtain the **probabilities**
 associated with the throw of that coin, we need to calculate the limit of the relative
 frequency of heads in $$N$$ throws as $$N$$ grows infinitely. For a "fair"
-coin tossed in a "fair" way, we should find that the probability of
-heads is $$P_H = 1/2$$.
+coin tossed in a "fair" way the probability of
+heads is, by definition,  $$P_H = 1/2$$  [^1].
 
 This procedure makes sense mathematically,
-but it leaves us with a problem: in order to know probabilities, we would
+but it leaves us with a problem: in order to know the probability of an outcome, we would
 need to perform an infinite amount of experiments. Since at the end of the day
-one can perform only a finite amount of experiments, people adopting this so-called "frequentist" 
-interpretation of probabilities mostly work with objects such as estimators and confidence intervals
+one can perform only a finite amount of experiments, people adopting this definition of probabilities,
+the so-called "frequentist interpretation", 
+mostly work with objects such as estimators and confidence intervals
 to extract as much information as possible from the finite number of samples one can obtain 
 from experimental data.
 
@@ -71,7 +80,7 @@ $$
 
 
 
-# Probing the Paranormal with Experiments
+# Probing the Paranormal with Experiments <a name="paranormal"></a>
 
 How does all this relate to miracles and the supernatural? A lot of historians speculate
 that Bayes and Price, both christians (thus, in particular, they believed in the 
@@ -118,3 +127,9 @@ reporting something not particularly rare; depending on how much I trust that pe
 the need of further evidence. Of course, I think that most people would find the 
 much more unlikely claim "I have a million dogs" difficult to believe by itself, 
 even if it comes from a very close and trusted friend.
+
+[^1]:
+    When dealing with real coins thrown in the real world, things are much more
+    complicated with respect to ideal fair coins. For an introduction, see
+    ["How random is a coin toss? - Numberphile"](https://www.youtube.com/watch?v=AYnJv68T3MM)
+    and the work of the legendary [Persi Diaconis](https://en.wikipedia.org/wiki/Persi_Diaconis]).
