@@ -21,7 +21,11 @@ supernatural phenomena; this weird choice of topic is motivated both
 by the alleged motivations behind the discovery of Bayes' Theorem
 and by the fact that supernatural phenomena and theological problems
 are for a lot of people much more captivating than
-dice throws or other textbook examples. ¯\\_(ツ)_/¯ 
+dice throws or other textbook [^1] examples. ¯\\_(ツ)_/¯
+
+Moreover, it will allow us to touch some really interesting topics about
+how Science progresses, and the apparent paradox of how rational people
+exposed to the same data can reach radically different conclusions.
 
 I will start by writing some basic facts about probabilities and Bayes' theorem;
 very likely the more experienced readers will be familiar with the content of the first sections,
@@ -45,7 +49,7 @@ the measured relative frequency of heads is $$57/100$$. In order to obtain the *
 associated with the throw of that coin, we need to calculate the limit of the relative
 frequency of heads in $$N$$ throws as $$N$$ grows infinitely. For a "fair"
 coin tossed in a "fair" way the probability of
-heads is, by definition,  $$P_H = 1/2$$  [^1].
+heads is, by definition,  $$P_H = 1/2$$  [^2].
 
 This definition makes sense mathematically,
 but it leaves us with a problem: in order to know the probability of an outcome, we would
@@ -65,9 +69,9 @@ some things about Bayes' Theorem.
 The probability of an outcome $$A$$ assuming another event $$B$$ happened
 is called a [conditional probability](https://en.wikipedia.org/wiki/Conditional_probability),
 and is typically written as $$P(A|B)$$. For definiteness, let's consider a fair die; we know
-that the probability of throwing it and getting a 1 is $$P(\text{Die throw} = 1) = 1/6$$. If
+that the probability of throwing it and getting a $$1$$ is $$P(\text{Die throw} = 1) = 1/6$$. If
 a friend throws a fair die and tells us only that they obtain an odd number,
-in order to calculate the probability that they got a 1 without discarding the information they gave us
+in order to calculate the probability that they got a $$1$$ without discarding the information they gave us
 we would use the conditional probability $$P(\text{Die throw} = 1 | \text{Die throw is odd})$$.
 
 Conditional probabilities are defined as: 
@@ -87,7 +91,7 @@ P(A|B) = \frac{P(B|A) P(A)}{P(B)};
 $$
 
 _Tip for the proof: start with the definitions of $$P(A|B)$$ and $$P(B|A)$$, and 
-notice that $$P(A \text{ and } B) = P(B \text{ and } A)$$_
+notice that $$P(A \text{ and } B) = P(B \text{ and } A)$$._
 
 This innocuous-looking statement about conditional probabilities can become very suggestive if 
 we are dealing with the problem of having a hypothesis $$H$$ and some data $$D$$ and we are interested 
@@ -139,7 +143,7 @@ Another example: most physicists in the 19th century were likely convinced that
 classical mechanics could explain every measurable phenomenon; we can imagine that
 their prior belief regarding the probability that classical mechanics was correct 
 everywhere was such that $$P(\text{Classical Mechanics}) \approx 1$$.
-This belief was changed[^2] by the experiments and the theoretical advances
+This belief was changed[^3] by the experiments and the theoretical advances
 which led to Quantum Mechanics and Relativity.
 
 Thus, although it sounds strange at first, for many situations the sets
@@ -204,11 +208,14 @@ in parapsychology:
 
 If the test subject truly possesses some supernatural power, he should be able
 to guess more times than what a regular human would guess by chance (here,
-the probability of guessing a card correctly should be $$p=1/5=0.2$$).
+the probability of guessing a card correctly should be $$p=1/5=0.2$$, and
+the probability of guessing $$r$$ times in $$N$$ tries is given by the
+[binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution)).
 
-This experiment (reported on
-[Soal and Bateman, 1954](https://psycnet.apa.org/record/1955-03428-000)) was performed
-on a woman named Mrs. Stewart; she had to try to guess the
+The experiment described above was performed
+on a woman named Mrs. Stewart (reported on
+[Soal and Bateman, 1954](https://psycnet.apa.org/record/1955-03428-000));
+she had to try to guess the
 correct card $$N = 37100$$ times. Under the hypothesis $$H_{\text{random}}$$
 that random chance alone was
 operating, the expected value $$r$$ of successful guesses in $$N$$ trials
@@ -226,7 +233,7 @@ $$
 Mrs. Stewart, according to the report, was able to guess correctly $$r = 9410$$ times!
 Although this might not seem a high number
 (she guessed correctly about one fourth of the cards, instead of one fifth),
-when we compare it with the standard deviation we see that $r$ is more than $$25$$
+when we compare it with the standard deviation we see that $$r$$ is more than $$25$$
 standard deviations away from $$r_{\text{random}}$$! The likelihood of
 obtaining this data given the hypothesis $$H_r$$ is
 
@@ -234,17 +241,18 @@ $$
 L_{\text{random}} = P(r|H_{\text{random}}) = {N \choose k} p^r (1-p)^{N-r} \approx 2 \times 10^{-139}.
 $$
 
-If we compare it to an alternative hypothesis $$H_f$$
+Let's compare it to an alternative hypothesis $$H_f$$
 where Mrs. Stewart has telepathic powers strong enough to guess
 a card correctly with probability $$f = 9410/37100 = 0.2536$$ and the experiment is
-still a Bernoulli process. For $$H_f$$, in fact, the likelihood can be calculated
+still a Bernoulli process. For $$H_f$$, the likelihood of obtaining the measured data can be calculated
 in the same way and it is
 
 $$
 L_f = P(r|H_f) \approx 0.00476.
 $$
 
-Because of the smallness of the ratio between $$L_f$$ and $$L_{\text{random}}$$, we should then conclude
+[Because of the smallness of the ratio](https://en.wikipedia.org/wiki/Likelihood-ratio_test)
+between $$L_f$$ and $$L_{\text{random}}$$, we should then conclude
 that the data really strongly supports the hypothesis $$H_f$$ over $$H_{\text{random}}$$.  
 If we started with prior probabilities $$P_{\text{random}}$$ for $$H_{\text{random}}$$
 and $$P_f$$ for $$H_f$$, the posterior probability of $$H_f$$ is given by Bayes' theorem:
@@ -273,10 +281,12 @@ clashes so much with our common sense and ESP powers are not a mainstream belief
 
 We were a bit hasty in this analysis: an expert reader probably noticed immediately
 that restricting ourselves to the only hypotheses $$H_{\text{random}}$$ and $$H_f$$
-was naive. Let's bring a bit more common sense to the table! We will introduce in
+was naive. Let's bring more ideas to the table! We will introduce in
 our analysis a class of alternative hypotheses $$H_1, \dots, H_k$$ which do
 not involve paranormal effects, but deception; for instance:
- *  Mrs. Stewart noticed some cards were signed on the back.
+ *  Mrs. Stewart noticed some cards were signed on the back; in particular,
+    if only one of them was distinguishable from the others the probability
+    for her to guess is not $$0.2$$ anymore, but $$0.4$$.
  *  The parapsychologist was wearing glasses, and Mrs. Stewart could
     somewhat see on them a reflection of the card, sometimes. 
  *  The experimenters unjustifiably discarded some data, either
@@ -284,6 +294,7 @@ not involve paranormal effects, but deception; for instance:
  *  The whole experiment was never performed and the results were
     invented.
  *  ...
+ 
 We could probably formulate hundreds of hypotheses like those, each,
 _a priori_, more likely than $$H_f$$, and with likelihood of generating
 the observed data not too different from $$L_f$$.
@@ -305,9 +316,9 @@ $$
 \sum_i P_i \ll P_f.
 $$
 
-This relation will never be satisfied if one is a skeptic:
+This relation will never be satisfied for a skeptic:
 for him, each of the hypotheses $$H_i$$ is more likely
-than $$H_f$$; thus, for each $i$, $$P_i \gg P_f$$.
+than $$H_f$$; thus, for each $$i$$, $$P_i \gg P_f$$.
 The important consequence of this analysis is that this experiment
 will convince only a person for which the probability of paranormal
 effects is already larger than the sum of all the probabilities
@@ -315,8 +326,8 @@ of various mechanisms of deception.
 
 If one calculates the posteriors for skeptics, we can see how
 for them this experiment does not support paranormal effects, but 
-deception. This was noticed already by Laplace in the early 1800s,
-who wrote:
+deception. This effect of sensational claims was noticed already
+by Laplace in the early 1800s, who wrote:
 >"But that which diminishes the belief of educated men often increases 
 > that of the uneducated, always avid for the marvellous".
 
@@ -325,7 +336,7 @@ times, educated men did not believe in the existence of meteorites; after
 all, there were only some unreliable witnesses of "stones falling 
 from the sky", and the idea did not make a lot of physical sense.
 Nature surprised scientists many times; I guess that the true value
-of education is the humility needed to change idea when confronted
+of education is the humbleness and flexibility needed to change idea when confronted
 with strong evidence. ESP, spirits, astrology and similar things,
 although fascinating, are as of now not supported by anything remotely
 comparable to strong evidence, and I doubt this will change in the future.
@@ -356,6 +367,9 @@ in fact, if we did not rule out a priori the possibility of a miracle by using t
 $$P(\text{Miracle}) = 0$$, no finite amount of data can
 render $$P(\text{Miracle} | \text{Observations})$$ equal to zero.
 
+The analysis of Mrs. Stewart case could be applied to miraculous claims and yield
+similar results: witnesses convince believers but not skeptics.
+
 Conversely, regarding ordinary events, if somebody told me "I have a dog" he would be
 reporting something not particularly rare; depending on how much I trust that person
 (and the consequences that me believing him have) I could accept that claim without 
@@ -363,8 +377,8 @@ the need of further evidence. Of course, I think that most people would find the
 much more unlikely claim "I have a million dogs" difficult to believe by itself, 
 even if it comes from a very close and trusted friend.
 
-[In a much more recent work](https://doi.org/10.1093/bjps/49.1.49) (with
-respect to Bayes' times), R. D. Hodler
+[In a much more recent work](https://doi.org/10.1093/bjps/49.1.49) with
+respect to Bayes' times, R. D. Hodler
 analyzed the problem of Miracles and found that:
 >Individual testimonies which are ‘non-miraculous’ in Hume's sense can in
 >principle be accumulated to yield a high probability both for the occurrence
@@ -384,9 +398,8 @@ than planned already! :-)
 
 There is something rather remarkable in the way Bayesian Inference works and 
 the way people reach their conclusions. In this post I presented only a few things,
-but there are even more complex human behaviors (such as divergence of opinions in spite
-of looking at the same data) which can be beautifully
-interpreted in a Bayesian fashion. Many argued that Bayesian inference
+but there are even more complex human behaviors which can be beautifully
+interpreted in a Bayesian framework. Many argued that Bayesian inference
 is the correct formalization of the scientific method.
 Indeed, scientists more often than not build their set of
 beliefs not really by performing experiments themselves, but by
@@ -394,14 +407,24 @@ reading reports and papers; the authority and trustworthiness
 of the authors of such documents, and how much do their conclusions
 clash with our prior beliefs, inevitably enter the scientific community's priors.
 
+![picture from xkcd](https://imgs.xkcd.com/comics/frequentists_vs_bayesians_2x.png){: class="col-7"}
 
+(mandatory strip from xkcd which appears in every discussion of Frequentists vs Bayesians) 
+
+-------------------------------------------------------------------
 [^1]:
+    Come on, textbooks are not boring! For an always inspiring text,
+    I suggest you my favorite book in statistics, especially regarding Bayesian Inference
+    and some of its more interesting applications: the great
+    "Probability Theory: The Logic of Science", by E. T. Jaynes. 
+
+[^2]:
     When dealing with real coins thrown in the real world, things are much more
     complicated with respect to ideal fair coins. For an introduction, see
     ["How random is a coin toss? - Numberphile"](https://www.youtube.com/watch?v=AYnJv68T3MM)
     and the work of the legendary [Persi Diaconis](https://en.wikipedia.org/wiki/Persi_Diaconis]).
 
-[^2]:
+[^3]:
     This is of course not to be taken literally; humans are complex and (quite often) stubborn. 
     A lot of physicists which studied Classical Mechanics for most of their lives 
     were never convinced in the correctness of Quantum Mechanics. Still, the beliefs 
