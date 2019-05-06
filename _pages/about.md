@@ -1,35 +1,24 @@
 ---
 layout: page
-title: Mediumish Template for Jekyll
-permalink: /about
-comments: true
+title: About
+permalink: /about/
 ---
 
-<div class="row justify-content-between">
-<div class="col-md-8 pr-5">
+[Curriculum Vitae](/cv.pdf)
 
-<p>This website is built with Jekyll and Mediumish template for Jekyll. It's for demonstration purposes, no real content can be found. Mediumish template for Jekyll is compatible with Github pages, in fact even this demo is created with Github Pages and hosted with Github.</p>
+I'm Alessandro, and this is my website.
 
-<p class="mb-5"><img class="shadow-lg" src="{{site.baseurl}}/assets/images/mediumish-jekyll-template.png" alt="jekyll template mediumish" /></p>
-<h4>Documentation</h4>
+I am a theoretical physicist, but I have been fascinated with technology
+since my childhood. Computers, especially, have been my top interest
+for a long time. I am extremely interested and have expertise in
+Data Analysis and Visualization. My resume can be
+found [here](/cv.pdf)
 
-<p>Please, read the docs <a href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/">here</a>.</p>
+Lately I have been working with Machine Learning and
+Data Science. I like Keras and Tensorflow,
+and I'm experimenting with Arduino and IoT devices.
+I code mostly in C/C++ and Python. 
 
-<h4>Questions or bug reports?</h4>
+I decided to start this blog to share with the world my views and the projects I am working on.
 
-<p>Head over to our <a href="https://github.com/wowthemesnet/mediumish-theme-jekyll">Github repository</a>!</p>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="sticky-top sticky-top-80">
-<h5>Buy me a coffee</h5>
-
-<p>Thank you for your support! Your donation helps me to maintain and improve <a target="_blank" href="https://github.com/wowthemesnet/mediumish-theme-jekyll">Mediumish <i class="fab fa-github"></i></a>.</p>
-
-<a target="_blank" href="https://www.wowthemes.net/donate/" class="btn btn-danger">Buy me a coffee</a> <a target="_blank" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/" class="btn btn-warning">Documentation</a>
-
-</div>
-</div>
-</div>
+I hope you get something useful from it!
