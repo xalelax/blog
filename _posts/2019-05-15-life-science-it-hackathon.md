@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "{Life Science} meets IT Hackathon, or how we built a wearable in a weekend"
+title:  "{Life Science} meets IT Hackathon, or how we built a wearable device in a weekend"
 labels: [IoT, wearables, blog]
 categories: [IoT, blog]
 image: /assets/images/glove.jpg
