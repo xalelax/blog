@@ -113,7 +113,7 @@ model.compile(optimizer=tf.optimizers.Adam(learning_rate = 0.1),
 ```
 This code, a minimal alteration from the linear regression case, is able
 to learn both the mean value and the variance of $$Y$$ given $$X$$.
-After training, let's plot what this model has learned:
+After training, let's plot what this model has learnt:
 
 ![Linear regression with confidence](/assets/pics/tfp/conf1.svg){: class="col-9"}
 
