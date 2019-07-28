@@ -41,9 +41,9 @@ solve the following optimization problem:
 
 $$
 \begin{align}
-\min_\alpha &\mathcal{L}_{\text{val}}(\alpha, w^*(\alpha)) \\
+\min_\alpha \, &\mathcal{L}_{\text{val}}(\alpha, w^*(\alpha)) \\
 \text{with }
-w^*(\alpha) &= \operatornamewithlimits{argmin}_w \mathcal{L}_{\text{train}}(\alpha, w),
+w^*(\alpha) &= \underset{w}{\operatorname{argmin}}\, \mathcal{L}_{\text{train}}(\alpha, w),
 \end{align}
 $$
 
