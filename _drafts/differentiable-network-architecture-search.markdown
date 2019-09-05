@@ -67,7 +67,8 @@ time-consuming.
 
 In the [DARTS paper](https://arxiv.org/abs/1806.09055) (by H. Liu et al.),
 the authors present a solution to this problem via continuous relaxation.
-This was not an entirely new idea (%todo: refs),
+This was not an entirely new idea (see ["Convolutional Neural Fabrics"](https://arxiv.org/abs/1606.02492)
+and ["Connectivity Learning in Multi-Branch Networks"](https://arxiv.org/abs/1709.09582)),
 but whereas previous approaches used it in order to fine tune specific 
 parameters, like filter sizes and number of filters of a specific architecture,
 in [DARTS](https://arxiv.org/abs/1806.09055) the search space is made of cells 
@@ -80,7 +81,8 @@ tensor, and each directed
 edge $$(i,j)$$ (connecting node $$i$$ to node $$j$$) is associated 
 with some operation $$o^{(i,j)}$$ on $$x^{(i)}$$. Moreover, it is assumed that 
 a cell has two tensors as inputs and one tensor as output;
-consistently with common choices for CNNs (zoph 2018), the two
+consistently with common choices for CNNs (see 
+["Learning Transferable Architectures for Scalable Image Recognition"](https://arxiv.org/abs/1707.07012)), the two
 tensors chosen as an input in DARTS are the outputs from the 
 previous two cells. The output of a cell is found by applying
 a reduction operation (tipically concatenation) to all of the 
@@ -97,10 +99,10 @@ such as convolutions, dilated convolutions, max pooling, and zero (i.e., no
 connection). We can then parametrize $$o^{(i,j)}$$ as 
 
 $$
-\bar{o}^{(i,j)}(x) = \sum_{o \elem \mathcal{O}}
+\bar{o}^{(i,j)}(x) = \sum_{o \in \mathcal{O}}
 \frac{
   \exp(\alpha_o^{(i,j)})
-}{ \sum_{o' \elem \mathcal{O}} \exp(\alpha_{o'}^{(i,j)})}
+}{ \sum_{o' \in \mathcal{O}} \exp(\alpha_{o'}^{(i,j)})}
 o(x),
 $$
 
@@ -111,10 +113,10 @@ gradient descent, since the $$\alpha$$s are now continuous.
 and the authors of DARTS propose to approximate the gradient with
 
 $$
-\nabla_alpha \mathcal{L}_{\text{val}}(\alpha, w^*(\alpha))
+\nabla_{\alpha} \mathcal{L}_{\text{val}}(\alpha, w^*(\alpha))
 \approx 
-\nabla_alpha \mathcal{L}_{\text{val}}(\alpha, 
-w - \xi \grad_w \mathcal{L}_{\text{train}}(\alpha, w) ,
+\nabla_{\alpha} \mathcal{L}_{\text{val}}(\alpha, 
+w - \xi \nabla_w \mathcal{L}_{\text{train}}(\alpha, w) ,
 \tag{3}
 $$
 
@@ -129,7 +131,7 @@ $$
 \nabla_alpha \mathcal{L}_{\text{val}}(\alpha, w'),
 $$
 
-where $$w' = w - \xi \grad_w \mathcal{L}_{\text{train}}(\alpha, w)$$.
+where $$w' = w - \xi \nabla_w \mathcal{L}_{\text{train}}(\alpha, w)$$.
 
 Finally, the last step needed is to decode the architecture 
 of the cell from the continuous set of $$\alpha$$s.
@@ -142,7 +144,7 @@ In particular, the DARTS' authors chose to search over two different kinds
 of cells: there are "normal" cells, where operations have stride one, 
 and there are "reduction" cells, in which all the operations adjacent to the input nodes 
 are of stride two. 
-Thus, as fairly common in networks built 
+Then, as fairly common in networks built 
 for image classification, the architecture is composed of many identical 
 cells stacked on top of each other, except some specific points
 where the cells' job is to downsample the incoming tensors.
@@ -163,13 +165,15 @@ them has to be given from the start. Especially for tasks like
 semantic image segmentation, this is hard to know from the start;
 optimal architectures can be, in fact, very complicated.
 
+![Auto-Deeplab search space](/assets/pics/autodeeplab/architecture.png){: class="col-9"}
+
 With [Auto-Deeplab](https://arxiv.org/abs/1901.02985), the search space is 
 not only at the cell level, but also at the network level; this is done by
 considering a [trellis](https://en.wikipedia.org/wiki/Trellis_(graph)) of cells
 during training, and after that the final architecture is decoded via the Viterbi
 algorithm by keeping only the path with the strongest connections in
 the trellis. Specifically, the authors restricted themselves to architectures
-where the first two layers 
+where the first two layers are downsampling layers, and then 
 
 [Stacked Hourglass](https://arxiv.org/abs/1603.06937)
 
