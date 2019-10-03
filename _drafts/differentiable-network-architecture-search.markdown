@@ -9,7 +9,7 @@ I recently stumbled
 across a very interesting paper (thanks a lot, Noam!) titled
 ["Auto-DeepLab: Hierarchical Neural Architecture Search for Semantic
 Image Segmentation"](https://arxiv.org/abs/1901.02985), by C. Liu et al.; the authors were able to find a network
-capable of state-of-the-art performance on a very hard problem, image segmentation,
+capable of state-of-the-art performance on a very hard problem, semantic image segmentation,
 in only 3 GPU days (with an NVIDIA Tesla P100). This is especially impressive
 since comparable methods require typically something like a thousand GPU days on
 the same hardware.
@@ -22,7 +22,7 @@ readers who would like to start researching the topic.
 
 If I had to sum up DNAS in one sentence, I would say that it is a technique
 which enables us to learn simultaneously the architecture of a neural network 
-*AND* its weights by transforming the NAS problem, typically discrete,
+*and* its weights by transforming the NAS problem, typically discrete,
 into a continuous one, which can then be solved via gradient descent.
 
 For definiteness, in the following I will show how DNAS can be applied to Convolutional
@@ -40,7 +40,7 @@ hyperparameters $$\alpha$$.
 Notice that for the kind of parameters I described,
 $$\alpha$$ will contain only discrete variables; *this can be quite problematic*, because
 if we want to find the best architecture for a given problem we really want to
-solve the following optimization problem:
+solve the following nested optimization problem:
 
 $$
 \begin{align}
@@ -51,13 +51,14 @@ w^*(\alpha) &= \underset{w}{\operatorname{argmin}}\, \mathcal{L}_{\text{train}}(
 \end{align}
 $$
 
-where $$\mathcal{L}_{\text{val}}$$ and $$\mathcal{L}_{\text{train}}$$ are the loss
-function calculated, respectively, on either the validation or the training set,
+where $$\mathcal{L}_{\text{val}}$$ and $$\mathcal{L}_{\text{train}}$$ are both the loss
+function calculated, respectively, on either a validation or a training set,
 and depend on the architecture of the network $$\alpha$$ and on the weights
 $$w$$.
-
 In other words, we want to find the architecture which, after being trained on
-the training set, gives the best results on the validation set. Since $$\alpha$$
+a training set, gives the best results on a validation set.
+
+Since $$\alpha$$
 is composed of discrete variables, Eq. (1) cannot be solved immediately via
 gradient descent. One could use reinforcement learning or evolutionary algorithms
 for Eq. (1),
@@ -165,18 +166,50 @@ them has to be given from the start. Especially for tasks like
 semantic image segmentation, this is hard to know from the start;
 optimal architectures can be, in fact, very complicated.
 
-![Auto-Deeplab search space](/assets/pics/autodeeplab/architecture.png){: class="col-9"}
+![Auto-Deeplab search space](/assets/pics/autodeeplab/architecture.png){: class="col-12"}
+(Auto-Deeplab search space; picture from their [paper on arxiv](https://arxiv.org/abs/1901.02985))
 
 With [Auto-Deeplab](https://arxiv.org/abs/1901.02985), the search space is 
 not only at the cell level, but also at the network level; this is done by
 considering a [trellis](https://en.wikipedia.org/wiki/Trellis_(graph)) of cells
 during training, and after that the final architecture is decoded via the Viterbi
 algorithm by keeping only the path with the strongest connections in
-the trellis. Specifically, the authors restricted themselves to architectures
+the trellis. 
+
+Specifically, the authors restricted themselves to architectures
 where the first two layers are downsampling layers, and then 
+each further layer can either keep the resolution of the incoming tensor, upsample it by
+2, or downsample it by 2 (see the figure above). This search space is quite general,
+and includes as specific cases previously-found successful architectures, like
+[DeepLabv3](https://arxiv.org/abs/1706.05587), [Conv-Deconv](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Noh_Learning_Deconvolution_Network_ICCV_2015_paper.pdf),
+and [Stacked Hourglass](https://arxiv.org/abs/1603.06937).
 
-[Stacked Hourglass](https://arxiv.org/abs/1603.06937)
+Another thing worth noticing is that the authors found empirically that it is better
+to start the optimization at the network level only after some epochs of optimization
+of the weights; if the architecture is optimized too early, it seems that it tends to
+converge to some bad local optima.
 
-[DeepLabv3](https://arxiv.org/abs/1706.05587)
+The results of Auto-Deeplab on the [Cityscapes dataset](https://www.cityscapes-dataset.com/)
+are the following:
 
-[Conv-Deconv](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Noh_Learning_Deconvolution_Network_ICCV_2015_paper.pdf)
+Model              | #Parameters | mIOU (%) |
+----------------  -|:-----------:|:--------:|
+Auto-DeepLab-*S*   |  10.15M     |   79.74  |
+Auto-DeepLab-*M*   |  21.62M     |   80.04  |
+Auto-DeepLab-*L*   |  44.42M     |   80.33  |
+-------------------|-------------|----------|
+DeepLabv3+         |  43.48M     |   79.55  |
+
+(here, mIOU is the [mean intersection over union](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/MeanIoU)).
+
+It is worth noticing that the smallest architecture found by Auto-DeepLab is able to 
+beat DeepLabv3+ with less than a fourth of the parameters!
+
+# Conclusion
+
+The process of neural architecture search for now seems to me still very empirical, 
+with a lot of important discoveries yet to be made which will allow us to tap the full
+potential of Deep Learning. I have the feeling that DNAS is one of the most promising approaches
+to this, and already since the time I started writing this article (I know, I am a slow writer) there
+have been multiple cool applications of DNAS which I cannot wait to learn a bit more about. For now,
+thanks for reading :-) 
