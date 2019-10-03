@@ -7,7 +7,8 @@ mathjax: True
 ---
 
 I recently stumbled
-across a very interesting paper (thanks a lot, [Noam](https://www.linkedin.com/in/noam-%E5%85%AB%E4%BA%91-r-b1677885/)
+across a very interesting paper (thanks a lot, 
+[Noam](https://www.linkedin.com/in/noam-%E5%85%AB%E4%BA%91-r-b1677885/)!) 
 titled ["Auto-DeepLab: Hierarchical Neural Architecture Search for Semantic
 Image Segmentation"](https://arxiv.org/abs/1901.02985), by C. Liu et al.; the authors were able to find a network
 capable of state-of-the-art performance on a very hard problem, semantic image segmentation,
