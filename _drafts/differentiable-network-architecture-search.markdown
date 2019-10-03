@@ -3,6 +3,7 @@ layout: post
 title:  "On Differentiable Neural Architecture Search, DARTS, and Auto-Deeplab"
 labels: [deep learning, math]
 categories: Blog
+image: assets/images/dnas.png
 ---
 
 I recently stumbled
@@ -127,9 +128,9 @@ of Eq. (3), it is possible to approximate the gradient at
 first order with
 
 $$
-\nabla_alpha \mathcal{L}_{\text{val}}(\alpha, w^*(\alpha))
+\nabla_\alpha \mathcal{L}_{\text{val}}(\alpha, w^*(\alpha))
 \approx 
-\nabla_alpha \mathcal{L}_{\text{val}}(\alpha, w'),
+\nabla_\alpha \mathcal{L}_{\text{val}}(\alpha, w'),
 $$
 
 where $$w' = w - \xi \nabla_w \mathcal{L}_{\text{train}}(\alpha, w)$$.
@@ -186,12 +187,13 @@ and [Stacked Hourglass](https://arxiv.org/abs/1603.06937).
 
 Another thing worth noticing is that the authors found empirically that it is better
 to start the optimization at the network level only after some epochs of optimization
-of the weights; if the architecture is optimized too early, it seems that it tends to
+of the weights; if the architecture is optimized too early, it seems that networks tends to
 converge to some bad local optima.
 
 The results of Auto-Deeplab on the [Cityscapes dataset](https://www.cityscapes-dataset.com/)
 are the following:
 
+{:class="table table-bordered"}
 Model              | #Parameters | mIOU (%) |
 ----------------  -|:-----------:|:--------:|
 Auto-DeepLab-*S*   |  10.15M     |   79.74  |
@@ -203,7 +205,8 @@ DeepLabv3+         |  43.48M     |   79.55  |
 (here, mIOU is the [mean intersection over union](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/MeanIoU)).
 
 It is worth noticing that the smallest architecture found by Auto-DeepLab is able to 
-beat DeepLabv3+ with less than a fourth of the parameters!
+beat DeepLabv3+ with less than a fourth of the parameters! Similar results apply to other benchmarks
+as well.
 
 # Conclusion
 
@@ -212,4 +215,4 @@ with a lot of important discoveries yet to be made which will allow us to tap th
 potential of Deep Learning. I have the feeling that DNAS is one of the most promising approaches
 to this, and already since the time I started writing this article (I know, I am a slow writer) there
 have been multiple cool applications of DNAS which I cannot wait to learn a bit more about. For now,
-thanks for reading :-) 
+thanks for reading :-)
