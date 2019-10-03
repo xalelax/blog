@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "On Differentiable Neural Architecture Search, DARTS, and Auto-Deeplab"
-labels: [deep learning, math]
-categories: Blog
+categories: [deep learning, math]
 image: assets/images/dnas.png
+mathjax: True
 ---
 
 I recently stumbled
