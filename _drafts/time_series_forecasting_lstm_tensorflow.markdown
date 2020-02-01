@@ -14,7 +14,7 @@ showing how to properly use some Tensorflow features which greatly
 help in this setting (specifically, the `tf.data.Dataset` class and Keras' 
 functional API).
 
-Imagine the following: we have a time series, i.e., some values $$y(t_i)=y_i$$ at times
+Imagine the following: we have a time series, i.e., a sequence of values $$y(t_i)=y_i$$ at times
 $$t_i$$, and we also have at each time step some auxiliary features $$\bm{X}(t_i) = \bm{X}_i$$
 which we think are related with the values of $$y_i$$. Some of the $$\bm{X}$$s 
 might be known for all time (think of them as predetermined features, like whether time $$t_i$$
@@ -23,11 +23,9 @@ the price of a Microsoft stock at time $$t_i$$).
 
 Thus, if we want to train a model to forecast the future values of the time series we cannot
 use every column of $$\bm{X}$$, but rather we need to censor the features we would not be able to 
-know at prediction time. 
-In this way, the shape of our (see the figure below)
+know at prediction time, as shown in the picture below. 
 
-
-...
+...pic...
 
 For these kinds of tasks, a pretty straightforward procedure would be to use an autoregressive
 model of some kind (like 
@@ -37,13 +35,12 @@ autocorrelations in a time series, and also can accept the deterministic feature
 (typically called "exogenous variables").
 One limitation of ARMAX is that it is a linear model, and also one needs to specify the order of 
 autocorrelations to be taken into account parametrically. LSTMs, instead, can learn nonlinear 
-patterns, and can take into account autocorrelations in a nonparametric way!
+patterns, and are able to take into account autocorrelations in a nonparametric way!
 
 
-In order to experiment a bit with LSTMs in the context of time series forecasting, an idea I wanted 
+In order to experiment with LSTMs in the context of time series forecasting, an idea I wanted 
 to try is the following: let's encode past observations in a latent space, and then use the 
-encoded past as a sort of "context" to then perform forecasts with an LSTM. 
-% footnote analogie con machine translation
+encoded past as a sort of "context" to then perform forecasts with an LSTM[^1]. 
 
 
 In order to better illustrate this problem and my proposed solution, let's consider in the 
@@ -52,25 +49,27 @@ following section a concrete example.
 # Example: BALBALBA Dataset
 
 Let's start with a practical example of a time series and look at the Bike sharing dataset;
-there we can find for each hour the amount of bikes rented by customers,
+there we can find for each hour the amount of bikes rented by customers of a bike sharing
+service in Washington DC,
 together with other features such as whether a certain day was a national holiday, and 
-which day of the week was it. For the sake of simplicity, 
+which day of the week was it. Our goal is to be able to predict the total bike usage for
+the week following prediction time. For the sake of simplicity, 
 let's skip a lot of data cleaning/feature engineering steps one could apply to this dataset, 
 and just load it via the following:
 
 ...code...
 
 As mentioned before, we want to feed the "past" plus some deterministic features in the future 
-to a Keras model and get back some predictions for the future; in order to make Keras accept this data, 
+to a Keras model and get back a forecast; in order to make Keras accept this data, 
 it has to be reshaped in an appropriate way. We need to split it into "windows" where each row is a 
 time step and each column correspond to a feature. Moreover, if we want to split the training into
 multiple batches we need to aggregate all these windows in a 
 tensor of shape $$(n_{batches}, n_{timesteps}, n_{features})$$.
 
-Since the data is already in a Pandas DataFrame, we could easily do these steps with a mix of Pandas
+Since the dataset is already loaded in a Pandas DataFrame, we could easily do these steps with a mix of Pandas
 methods (`DataFrame.rolling()` & co.) and then transform the data into Numpy arrays 
 (which TensorFlow can then ingest).
-I try to show here an approach which I like more, which can work seamlessly for much larger datasets
+I try to show here an approach I like more, that can work seamlessly for much larger datasets
 which do not fit in memory and has a very clean API: we initialize a `tf.data.Dataset` object from the 
 data and then transform it via TensorFlow builtin functions. So, we can just define a function that 
 returns the desired form of the dataset like this:
@@ -86,9 +85,9 @@ of them, we also randomize the order of training examples we show to the model, 
 [prefetch](https://www.tensorflow.org/api_docs/python/tf/data/Dataset#prefetch) it. 
 
 Now that the data is prepared, we need to define the model. The specifics of the neural architecture
-I am using here are not particularly optimized. The basic idea behind it is that I wanted to try to
+I am using here are not particularly optimized, but they follow from the basic idea that I want to
 encode past observations in a latent space, and then use the encoded past as a sort of "context"
-to then perform forecasts with an LSTM. % footnote analogie con machine translation REPET
+to then perform forecasts with an LSTM. % footnote analogie con machine trans
 
 ...figura...
 
@@ -102,7 +101,8 @@ we just need to call
 
 ...code...
 
-
+We can check for the mean squared error on the test set by calling `....`
+and we obtain for these Hyperparameters $$77777777$$; not too bad!
 
 
 # Bonus: What if we want to forecast probability distributions?
@@ -116,3 +116,11 @@ Well, that's a topic for another day :-)
 
 # Conclusion
 
+This was just a very simple application; I did not optimize the model at all,
+but I think one can build upon this to achieve interesting results.
+
+
+
+-------------------------------------------------------------------
+
+[^1]: This kind of technique is very common in machine translation; see %%%%%%%%
