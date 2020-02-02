@@ -7,7 +7,7 @@ categories: Blog
 
 # Introduction
 
-In this post (and its associated notebook ... ) I want to
+In this post (and its associated [notebook](https://colab.research.google.com/drive/1-MaDm60lVXS_6cUBou7_oa5JwjXqpKlk)) I want to
 illustrate a problem I have been thinking about in time series
 forecasting with LSTMs, while simultaneously
 showing how to properly use some Tensorflow features which greatly
@@ -133,8 +133,9 @@ we just need to call
 
 ...code...
 
-We can check for the mean squared error on the test set by calling `....`
-and we obtain for these Hyperparameters $$77777777$$; not too bad!
+We can check for the mean squared error on the test set by calling `model.evaluate(test_windowed)`
+and we obtain for these Hyperparameters a mean absolute error of about 
+$$75$$ bikes; not too bad!
 
 
 # Bonus: What if we want to forecast probability distributions?
@@ -143,7 +144,18 @@ As I [previously argued on my blog](/tensorflow-heteroscedasticity), point predi
 are not the full story, and it is often of uttermost importance to be able to 
 predict *probability distributions*[^2]. Luckily, since we built our model with 
 TensorFlow, we can just make a slight modification to the head of the neural network
-and attach to it a TensorFlow Probability distribution layer
+and attach to it a TensorFlow Probability distribution layer; thus, we can define
+the model via
+
+...code...
+
+The loss function now cannot be MSE or Huber anymore, because the model returns distributions.
+A natural choice here is to do maximize likelihood, which is equivalent to 
+minimizing negative log-likelihood. So, the model can be trained in the following way:
+
+...code...
+
+And after a while we can obtain reasonable-looking forecasts.
 
 
 
@@ -155,7 +167,12 @@ Well, that's a topic for another day :-)
 # Conclusion
 
 This was just a very simple application; I did not optimize the model at all,
-but I think one can build upon this to achieve interesting results.
+but I think one can build upon this to achieve interesting results. Especially,
+better data cleaning and feature engineering would help a lot.
+
+Another idea I would like to try for forecasting is 
+[attention-based models](https://arxiv.org/abs/1706.03762)
+
 
 
 
