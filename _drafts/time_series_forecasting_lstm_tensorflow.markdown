@@ -15,14 +15,14 @@ help in this setting (specifically, the `tf.data.Dataset` class and Keras'
 functional API).
 
 Imagine the following: we have a time series, i.e., a sequence of values $$y(t_i)=y_i$$ at times
-$$t_i$$, and we also have at each time step some auxiliary features $$\bm{X}(t_i) = \bm{X}_i$$
-which we think are related with the values of $$y_i$$. Some of the $$\bm{X}$$s
+$$t_i$$, and we also have at each time step some auxiliary features $$\boldsymbol{X}(t_i) = \boldsymbol{X}_i$$
+which we think are related with the values of $$y_i$$. Some of the $$\boldsymbol{X}$$s
 might be known for all time (think of them as predetermined features, like whether time $$t_i$$
 is a national holiday) whereas others are random and quite difficult to forecast in advance (say,
 the price of a Microsoft stock at time $$t_i$$).
 
 Thus, if we want to train a model to forecast the future values of the time series we cannot
-use every column of $$\bm{X}$$, but rather we need to censor the features we would not be able to
+use every column of $$\boldsymbol{X}$$, but rather we need to censor the features we would not be able to
 know at prediction time, as shown in the picture below.
 
 ![Structure of data in forecasting](/assets/pics/encdec/table_time_series.svg){: class="col-9"}
@@ -139,6 +139,12 @@ and we obtain for these Hyperparameters $$77777777$$; not too bad!
 
 # Bonus: What if we want to forecast probability distributions?
 
+As I [previously argued on my blog](/tensorflow-heteroscedasticity), point predictions
+are not the full story, and it is often of uttermost importance to be able to 
+predict *probability distributions*[^2]. Luckily, since we built our model with 
+TensorFlow, we can just make a slight modification to the head of the neural network
+and attach to it a TensorFlow Probability distribution layer
+
 
 
 # Explainability of the model
@@ -156,3 +162,8 @@ but I think one can build upon this to achieve interesting results.
 -------------------------------------------------------------------
 
 [^1]: This kind of technique is very common in machine translation; see %%%%%%%%
+
+[^2]: I recently read a very accessible book on the problems which can arise 
+      in businesses when ignoring probability distributions which I wish more
+      people would read and understand. It is called *The Flaw of Averages*, by
+      Sam L. Savage, and I wholeheartedly recommend it :-) 
