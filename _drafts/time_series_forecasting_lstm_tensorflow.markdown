@@ -278,7 +278,7 @@ TensorFlow, we can just make a slight modification to the head of the neural net
 and attach to it a TensorFlow Probability distribution layer; thus, we can define
 the model via
 
-```python3
+```python
 import tensorflow_probability as tfp
 
 tfd = tfp.distributions
@@ -340,19 +340,24 @@ Well, that's a topic for another day :-)
 This was just a very simple application; I did not optimize the model at all,
 but I think one can build upon this to achieve interesting results. Especially,
 better data cleaning and feature engineering would help a lot.
+It would be interesting to see whether with better hyperparameters 
+we can obtain much better performance.
 
-Another idea I would like to try for forecasting is 
-[attention-based models](https://arxiv.org/abs/1706.03762)
-
+Still, I think this code exemplifies how easy it has become nowadays to
+build not-so-trivial neural networks (like the one we had here, combining
+LSTMs and probabilistic layers) and train them. Modern frameworks really do 
+abstract a lot of the heavy lifting for us!
 
 The full code used for this post can be found on 
-[a Google Colab notebook](https://colab.research.google.com/drive/1-MaDm60lVXS_6cUBou7_oa5JwjXqpKlk#scrollTo=JmVrW6rSy87F&forceEdit=true&sandboxMode=true)).
+[this Google Colab notebook](https://colab.research.google.com/drive/1-MaDm60lVXS_6cUBou7_oa5JwjXqpKlk#scrollTo=JmVrW6rSy87F&forceEdit=true&sandboxMode=true).
 
 
 
 -------------------------------------------------------------------
 
-[^1]: This kind of technique is very common in machine translation; see %%%%%%%%
+[^1]: This kind of technique is very common in machine translation; see 
+      [this tutorial](https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html)
+	  for a nice introduction.
 
 [^2]: I recently read a very accessible book on the problems which can arise 
       in businesses when ignoring probability distributions which I wish more
