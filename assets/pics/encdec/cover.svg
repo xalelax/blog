@@ -15,8 +15,11 @@
    viewBox="0 0 92.074998 61.647918"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
-   sodipodi:docname="cover.svg">
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   sodipodi:docname="cover.svg"
+   inkscape:export-filename="/Users/alex/Code/blog/assets/images/encdec.png"
+   inkscape:export-xdpi="385.08359"
+   inkscape:export-ydpi="385.08359">
   <defs
      id="defs2">
     <clipPath
@@ -1202,17 +1205,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="99.930827"
-     inkscape:cy="186.39942"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="303.87661"
+     inkscape:cy="-42.333308"
      inkscape:document-units="mm"
      inkscape:current-layer="g8157"
      showgrid="false"
      units="px"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-width="1440"
+     inkscape:window-height="775"
+     inkscape:window-x="0"
+     inkscape:window-y="1"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
@@ -1666,30 +1669,6 @@
        width="100%"
        height="100%"
        transform="matrix(0.04233333,0,0,-0.04233333,202.81441,366.07027)" />
-    <path
-       id="path166"
-       style="fill:none;stroke:#ffffff;stroke-linecap:round"
-       d="M 54,167.98909 H 221.4"
-       clip-path="url(#pce51287c97-7)"
-       inkscape:connector-curvature="0"
-       transform="matrix(0.35277777,0,0,0.35277777,122.41137,176.52838)" />
-    <path
-       id="path175"
-       style="fill:none;stroke:#ffffff;stroke-linecap:round"
-       d="M 54,141.04352 H 221.4"
-       clip-path="url(#pce51287c97-7)"
-       inkscape:connector-curvature="0"
-       transform="matrix(0.35277777,0,0,0.35277777,122.41137,176.52838)" />
-    <path
-       id="path224"
-       style="fill:none;stroke:#ffffff;stroke-width:0.44097221;stroke-linecap:square;stroke-linejoin:miter"
-       d="m 141.46137,236.66289 h 59.055"
-       inkscape:connector-curvature="0" />
-    <path
-       id="path227"
-       style="fill:none;stroke:#ffffff;stroke-width:0.44097221;stroke-linecap:square;stroke-linejoin:miter"
-       d="m 141.46137,217.48589 h 59.055"
-       inkscape:connector-curvature="0" />
     <g
        id="g4759"
        transform="matrix(0.88454848,0,0,1.3721037,-137.7182,-28.412816)">
@@ -7099,28 +7078,40 @@
       </g>
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.55811119px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68992126"
-         x="-105.31114"
-         y="291.79117"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.29894352px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.55412263"
+         x="-101.8673"
+         y="306.53653"
          id="text8161"
-         transform="scale(1.0935858,0.91442299)"><tspan
+         transform="scale(1.1468504,0.8719533)"><tspan
            sodipodi:role="line"
            id="tspan8159"
-           x="-105.31114"
-           y="291.79117"
-           style="stroke-width:0.68992126">Encoder</tspan></text>
+           x="-101.8673"
+           y="306.53653"
+           style="stroke-width:0.55412263">Encoder</tspan></text>
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.55811119px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:Calibri;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68992126"
-         x="54.804611"
-         y="293.26053"
-         id="text8161-5"
+         style="font-style:normal;font-weight:normal;font-size:15.3993721px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.38498428"
+         x="54.025051"
+         y="281.2345"
+         id="text4817"
+         transform="scale(1.0472019,0.95492569)"><tspan
+           sodipodi:role="line"
+           id="tspan4815"
+           x="54.025051"
+           y="281.2345"
+           style="stroke-width:0.38498428">Decoder</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:15.67987061px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.39199677"
+         x="58.386349"
+         y="371.13428"
+         id="text4821"
          transform="scale(1.0935858,0.91442299)"><tspan
            sodipodi:role="line"
-           id="tspan8159-0"
-           x="54.804611"
-           y="293.26053"
-           style="stroke-width:0.68992126">Decoder</tspan></text>
+           id="tspan4819"
+           x="58.386349"
+           y="371.13428"
+           style="stroke-width:0.39199677">Dense</tspan></text>
     </g>
   </g>
 </svg>
