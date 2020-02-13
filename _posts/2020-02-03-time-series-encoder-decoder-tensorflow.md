@@ -163,7 +163,7 @@ of them, we also randomize the order of training examples we show to the model, 
 Via the `generate_dataset` function we can create `tf.data.Dataset` objects
 to feed to TensorFlow:
 
-```
+```python
 # Times at which to split train/validation and validation/test
 val_time = 10000
 test_time = 14000
