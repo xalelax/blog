@@ -52,8 +52,8 @@ Transfer learning has many advantages, among which:
 # Dog breed classifier
 
 In order to show how to perform transfer learning, let's train a neural network which recognizes
-the breed of a dog from a single picture. For training, we will use the St...
-dataset, which contains around 20,000 pictures of dogs together with labels of their breed.
+the breed of a dog from a single picture. For training, we will use Stanford's Dog Dataset, 
+which contains around 20,000 labeled pictures of dogs.
 Although 20,000 images might sound like a lot, in the world of computer 
 vision this is a quite small dataset: the data used for training state-of-the-art networks
 for object classification, [Imagenet](http://www.image-net.org/)
@@ -84,10 +84,9 @@ for doggo in dataset['train'].take(10):
 
 Notice how pictures in this dataset have different resolutions, and often contain 
 a lot of other stuff aside from a dog. The best thing to do would be to apply 
-the dog breed classifier network only to a the subset of each image where the dog is,
+the dog breed classifier network only to the subset of each image where the dog really is,
 but for the sake of simplicity we will just resize every image to the same size and
-feed them in their entirety to our network
-
+feed them in their entirety to our network:
 ```python
 IMG_LEN = 224
 IMG_SHAPE = (IMG_LEN,IMG_LEN,3)
@@ -116,7 +115,6 @@ def prepare(dataset, batch_size=None):
     return ds
 ```
 
-
 Now we can define a model; as I am experimenting lately with TensorFlow Lite, and plan to deploy
 this on my smartphone for tesing purposes, I decided to start with a pretrained 
 [MobileNetV2](https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html)
@@ -132,10 +130,10 @@ base_model = tf.keras.applications.MobileNetV2(input_shape=IMG_SHAPE,
 By specifying `include_top=False`
 we cut away from MobileNetV2 the fully connected layer at the top of the
 network; therefore, the network now builds from each image $$1280$$ matrices
-(size $$7x7$$) which we will use as features for breed classification.
+(size $$7 \times 7$$) which we will use as features for breed classification.
 
 Thus, on top of `base_model`, we will add just two layers: a GlobalAveragePooling2D
-layer in order to transform the above-mentioned $$7x7x1280$$ tensor 
+layer in order to transform the above-mentioned $$7 \times 7 \times 1280$$ tensor 
 into a vector, and then a single dense layer with as many neurons as the output classes 
 we want to predict (i.e., the number of dog breeds).
 ```python
@@ -150,7 +148,7 @@ model = tf.keras.Sequential([
 
 After this, we just need to compile the model and fit it:
 ```python
-# Didn't do any hyperparameter optimization on Adamax's lr
+# Didn't do any hyperparameter optimization
 model.compile(optimizer=tf.keras.optimizers.Adamax(0.0001),
               loss='categorical_crossentropy',
               metrics=['accuracy', 'top_k_categorical_accuracy'])
@@ -164,8 +162,11 @@ history = model.fit(train_batches,
 ```
 
 The training curves look like the following:
+% pics
 
-
+Not bad! It seems we can get around $$70%$$ accuracy overall for breed detection,
+and if we allow the model to spit out not just one but five predictions, 
+the chance of guessing the correct breed jumps to $$X%$$.
 
 
 
@@ -173,5 +174,8 @@ The training curves look like the following:
 
 In this tutorial, I hope I was able to give a clear small introduction to transfer learning,
 together with the minimal amount of code needed to start experimenting with it.
+For your convenience, 
+[here is a link to the colab notebook](https://colab.research.google.com/drive/1ijYmweG5WNHBKWwHvbAbA2ITjeklPrBq)
+I wrote for this post.
 
 If you made it this far, thanks a lot for reading :-)
