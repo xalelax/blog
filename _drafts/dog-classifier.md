@@ -3,7 +3,7 @@ layout: post
 title:  "Transfer learning made easy: let's build a dog breed classifier!"
 labels: [deep learning, machine learning]
 categories: [deep learning, machine learning]
-image: assets/images/encdec.png
+image: assets/images/doge.jpg
 ---
 
 # Introduction
@@ -13,12 +13,12 @@ with the help of modern libraries. I will use TensorFlow, but the situation look
 similar with other frameworks. In particular, I will load a Dataset from the TensorFlow
 Datasets library and download a pretrained model for object classification. 
 We will then attach a custom layer on top of pretrained
-model, and train it for the 
+model, and train it for the task of dog breed recognition!
 
 
 Transfer learning is based on the idea that the feature a network learns for a problem
-can be reused for a variety of other tasks; %aggiungere refs
-this should sound a very natural concept: as humans, when learning how to perform
+can be reused for a variety of other tasks;
+this should sound very natural: as humans, when learning how to perform
 a new task we never start from scratch, but we carry over all that we have learnt in
 our lifetime (sometimes this allows us to quickly learn new stuff,
 often from a single training example, but
@@ -48,7 +48,6 @@ Transfer learning has many advantages, among which:
      set as nontrainable) the weights in the initial layers of the network, rendering the 
 	 remaining free parameters a small minority with respect to the total number of parameters
 	 of the network. As a result, training time is much smaller!
-  3. Buh	 
 
 # Dog breed classifier
 
@@ -119,7 +118,8 @@ def prepare(dataset, batch_size=None):
 
 
 Now we can define a model; as I am experimenting lately with TensorFlow Lite, and plan to deploy
-this on my smartphone for tesing purposes, I decided to start with a pretrained MobileNetV2 % link
+this on my smartphone for tesing purposes, I decided to start with a pretrained 
+[MobileNetV2](https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html)
 network, as it is very performant on mobile devices. This network will serve as a base, and we can 
 download it in the following way:
 
@@ -130,12 +130,13 @@ base_model = tf.keras.applications.MobileNetV2(input_shape=IMG_SHAPE,
 ```
 
 By specifying `include_top=False`
-we cut away from MobileNetV2 the very final layer, a dense layer of 1000 %check
-neurons which give the output predictions for the imagenet classes (...) % dare esempi
+we cut away from MobileNetV2 the fully connected layer at the top of the
+network; therefore, the network now builds from each image $$1280$$ matrices
+(size $$7x7$$) which we will use as features for breed classification.
 
-On top of this model, we will add just two layers: a Global...2d % finire
-to transform the .... tensor which is the output from the final layer of MobileNetV2
-to a vector, and then a single dense layer with as many neurons as the output classes 
+Thus, on top of `base_model`, we will add just two layers: a GlobalAveragePooling2D
+layer in order to transform the above-mentioned $$7x7x1280$$ tensor 
+into a vector, and then a single dense layer with as many neurons as the output classes 
 we want to predict (i.e., the number of dog breeds).
 ```python
 base_model.trainable = False
@@ -147,6 +148,22 @@ model = tf.keras.Sequential([
 ])
 ```
 
+After this, we just need to compile the model and fit it:
+```python
+# Didn't do any hyperparameter optimization on Adamax's lr
+model.compile(optimizer=tf.keras.optimizers.Adamax(0.0001),
+              loss='categorical_crossentropy',
+              metrics=['accuracy', 'top_k_categorical_accuracy'])
+			  
+train_batches = prepare(training_data, batch_size=32)
+test_batches = prepare(test_data, batch_size=32)
+
+history = model.fit(train_batches,
+                    epochs=30,
+                    validation_data=test_batches)
+```
+
+The training curves look like the following:
 
 
 
@@ -155,4 +172,6 @@ model = tf.keras.Sequential([
 # Conclusions
 
 In this tutorial, I hope I was able to give a clear small introduction to transfer learning,
-together 
+together with the minimal amount of code needed to start experimenting with it.
+
+If you made it this far, thanks a lot for reading :-)
