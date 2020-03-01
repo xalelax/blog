@@ -78,9 +78,8 @@ for doggo in dataset['train'].take(10):
     plt.title(get_name(doggo['label']))
 ```
 
-% inserire pics
-
-...
+![Dog 1](/assets/pics/dogs/1.svg){: class="col-4"}![Dog 2](/assets/pics/dogs/2.svg){: class="col-4"}
+![Dog 3](/assets/pics/dogs/3.svg){: class="col-4"}![Dog 4](/assets/pics/dogs/4.svg){: class="col-4"}
 
 Notice how pictures in this dataset have different resolutions, and often contain 
 a lot of other stuff aside from a dog. The best thing to do would be to apply 
@@ -161,14 +160,13 @@ history = model.fit(train_batches,
                     validation_data=test_batches)
 ```
 
-The training curves look like the following:
-% pics
+The learning curves look like the following:
+![Learning curves](/assets/pics/dogs/lc.svg){: class="col-3"}
 
 Not bad! It seems we can get around $$70%$$ accuracy overall for breed detection,
-and if we allow the model to spit out not just one but five predictions, 
-the chance of guessing the correct breed jumps to $$X%$$.
-
-
+and if we look at the top-5 predictions the chance of guessing the 
+correct breed jumps to $$92%$$. This classifier can have real-world use cases,
+and it is amazing that one can build a prototype in just a few lines of code.
 
 # Conclusions
 
