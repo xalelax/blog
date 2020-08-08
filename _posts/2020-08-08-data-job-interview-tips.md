@@ -3,7 +3,7 @@ layout: post
 title:  "Data science case studies: easy to avoid common mistakes"
 labels: [statistics, blog]
 categories: [statistics, blog]
-image: assets/images/doge.jpg
+image: assets/images/guitar.jpg
 ---
 
 During my time as a Data Scientist, I had the chance to interview my fair share of candidates for data-related roles.
