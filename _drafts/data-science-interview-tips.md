@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Data science job interview: easy to avoid common mistakes"
-labels: [statistics, machine learning]
-categories: [statistics, machine learning]
+title:  "Data science case studies: easy to avoid common mistakes"
+labels: [statistics, blog]
+categories: [statistics, blog]
 image: assets/images/doge.jpg
 ---
 
@@ -18,10 +18,10 @@ to TensorFlow's development, obtaining 2 PhDs, and publishing at least 3 Deep Le
 I would just instantly trust a person who convinces me on the points I am about to describe...
 And I can imagine the same happening in other companies, with other interviewers.
 
-Although this is a very personal and opinionated list, I hope these few tips and tricks
-can be of some help to people at the start of their data science career. If you have more than ~6 months
-of working experience, *hopefully* you will not find anything new here ¯\_(ツ)_/¯
-
+Although this is a personal and quite opinionated list, I hope these few tips and tricks
+can be of some help to people at the start of their data science career!
+I am putting here only the more DS-related things that came to my mind, but of course writing Pythonic, 
+readable, and expressive code is also something that will please immensely whomever is interviewing you!
 
 # Sloppy use of Pandas
 
@@ -52,13 +52,49 @@ Final tip: please avoid using `inplace=True` anywhere. Contrary to what you migh
 any performance bonus and it naturally makes you write unclear code, as it hinders your ability to chain methods.
 Hopefully this feature [will be discontinued sometime in the future](https://github.com/pandas-dev/pandas/issues/16529).
 
-# Fitting stuff on the test set
+# Information leaking from the test set
 
-The test set is sacred; while building and selecting a model, it should not be even looked at. 
+The test set is sacred; while building models or selecting the best one, it should not be even looked at. 
+Think about it: the reason why we have a test set in the first place is that we want to have an estimate
+of the generalization error of our model which is as unbiased as possible. If we are allowed to get a 
+sneak peek into "the future" (i.e., data that during training and model building fundamentally we should not 
+have access to) it's almost guaranteed that we will get influenced by that, and bias our error estimates.
+
+Although I've never seen anybody *directly* fit a model on the test set, quite commonly instead candidates
+performed hyperparameter tuning and model selection by looking at some metric on the test set. Save part
+of the data as a validation set instead, or even better, perform cross-validation.
+
+Another quite common thing which causes leakage of information from the test set is fitting scalers
+(like `sklearn.preprocessing.StandardScaler`) or oversampling routines 
+(e.g., `imblearn.over_sampling.SMOTE`) on the whole dataset. Again, feature engineering, resampling, and
+so on are part of how a model is built and trained: keep the test set out of it.
 
 # Flaw of averages
 
+Although summary statistics, like averages, quantiles, and so on, are useful to get a first impression
+of the data, don't make the mistake of reducing distributions to a single number when this doesn't
+make sense. A classic cautionary example to showcase this is 
+[Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet), but my favorite is 
+the [Datasaurus Dozen](https://www.autodeskresearch.com/publications/samestats). 
+
+![Source: Autodesk Research](https://d2f99xq7vri1nk.cloudfront.net/DinoSequentialSmaller.gif){: class="col-8"}
+
+More often than not, the distribution of your data points matters more than their average value, 
+and especially in some applications the shape of the tails of your distributions is what at 
+the end of the day governs decisions.
+
 # Knowledge of algorithms
+
+When you are given a case study, you often have an advantage you can capitalize on: you choose the kinds
+of models to use. That means that you can anticipate some of the questions interviewers might ask you.
+
+For example, if you end up using an `XGBClassifier` for your task, try to understand how it works, 
+as deeply as you can. Everyone knows it's based on decision trees, but which other "ingredients" 
+do you need for it? Do you know how XGBoost handles missing values? 
+Could you explain Bagging and Boosting in layman's terms?
+
+Even if you end up using linear regression, you should have a clear idea about what is happening under
+the hood.
 
 # Poor visualization choices
 
@@ -73,3 +109,35 @@ just creates two arrays with samples from an exponential distribution; then, it 
 
 ![Not a really good plot](/assets/pics/itw-tips/vis1.svg){: class="col-8"}
 
+I saw some variation of this an enormous amount of times; basically, what we would really like to do is
+compare the distribution of something among two groups, but in this plot we are only showing raw counts.
+If one of the groups has more samples than the other, a plot like the one above is meaningless to get an
+idea of the underlying distributions. A better choice would be to normalize what we are displaying in a 
+sensible way: in this case, just setting the parameter `density=True` transforms the raw counts into
+relative frequencies, and gives us the following:
+
+<script src="https://gist.github.com/xalelax/903f478d3135a8ba14c3e75c3973f12a.js"></script>
+![Better histogram for the comparison of distribution](/assets/pics/itw-tips/vis2.svg){: class="col-8"}
+
+Nice! Now we can explicitly see that, after all, `a` and `b` are samples from the same distribution.
+There is still something that I dislike here: a lot of white space, and the fact that for values of `a`
+or `b` larger than 4, I cannot really see any bar clearly. Luckily, since 1614 Logarithms are a common 
+mathematical operation... So common that we even have a dedicated keyword argument in `plt.hist(...)` that 
+just transforms our linear y-axis to a logarithmic one:
+
+<script src="https://gist.github.com/xalelax/8880f06bda8cfae0d567eb2accc6b8c8.js"></script>
+![Are we there yet?](/assets/pics/itw-tips/vis3.svg){: class="col-8"}
+
+Notice that this is by no means a "perfect" plot: our axes are unlabeled, no legend, and it just looks kinda
+ugly! But at least, we can extract insights that we would have never been able to see with 
+just a call to `plt.hist([a,b])`.
+
+# Conclusion
+
+What all the above-listed mistakes have in common is that they are easily avoidable with some
+thought and knowledge of the subject, so my advice for your next data science case study is: 
+relax, focus, try to be one step ahead of whatever mind game they're playing with you, 
+and Google for stuff (a lot!).
+
+To conclude, I wish you all the best in your career, whatever job you happen to be doing now!
+Maybe see you at an interview :-P
