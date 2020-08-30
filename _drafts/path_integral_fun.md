@@ -4,12 +4,16 @@ title:  "Borwein Integrals interpreted via Path Integrals"
 labels: [math, statistics]
 mathjax: true
 categories: [math, statistics]
-image: assets/images/doge.jpg
+image: assets/images/borwein.png
 ---
 
-Intuition is a powerful tool that arguably guided most of humankind's
-mathematical discoveries. Although we rely on it constantly,
-the cases when intuition spectacularly fails teach us valuable lessons.
+The ability to see common patterns and analogies, to conjecture universal
+laws starting from the particular things we can experience,
+is a powerful tool, which arguably is one of the foundations of science.
+Although we rely constantly on our inductive abilities,
+the cases when our intuition is spectacularly wrong teaches us valuable lessons,
+in the same way optical illusions can make us understand how our visual
+perception works.
 
 My favorite example about this is the (apparent) pattern one can see
 in Borwein integrals (from the father and son who popularized this
@@ -21,7 +25,7 @@ where they link the strange properties of Borwein integrals to probability distr
 associated with some random walks, and with an argument essentially about causality they
 are able to explain what is happening "under the hood".
 
-Let's then start playing with these interesting integrals.
+Let's then start our study of these interesting integrals.
 With just a tiny bit of effort, it is easy to prove that
 
 $$
@@ -111,7 +115,7 @@ $$
 \langle \bar{x} | \psi \rangle = \int_\mathbb{R} \diff x \, \delta(x - \bar{x}) \psi(x) = \psi(\bar{x}),  
 $$
 
-and we can easily prove a completeness relation they satisfy:
+and we can easily prove that they satisfy the completeness relation:
 
 $$
 \int_\mathbb{R} \diff \tilde{x} \,
@@ -143,7 +147,7 @@ of the operator $$\hat{S}(a)$$. Therefore, the pdf for the position of
 the particle after $$N$$ steps is
 
 $$
-p_N(x) = \langle x | \hat{S}(a_N) \hat{S}(a_{N-1}) \dots \hat{S}(a_1) | 0 \rangle;
+p_N(x) = \langle x | \hat{S}(a_N) \hat{S}(a_{N-1}) \dots \hat{S}(a_1) | x_0 = 0 \rangle;
 $$
 
 by introducing completeness relations between each pair of operators we obtain
@@ -153,7 +157,7 @@ p_N(x) = \int_{\mathbb{R}^{N-1}} \mathrm{d}x_1 \dots \mathrm{d}x_{N-1}
 \langle x | \hat{S}(a_N) | x_{N-1} \rangle
 \langle x_{N-1}| \hat{S}(a_{N-1}) | x_{N-2} \rangle
 \dots
-\langle x_1 | \hat{S}(a_1) | 0 \rangle.
+\langle x_1 | \hat{S}(a_1) | x_0 = 0 \rangle.
 $$
 
 Notice that all of the factors appearing in the equation above are quite trivial 
@@ -267,7 +271,7 @@ $$
 away from the origin. In some way, one can interpret this as a sort of causal argument:
 if the information that $$\mathrm{U}_{ - a_1}^{ + a_1}(x)$$ has a boundary cannot reach
 the origin in $$N$$ steps, the probability density at the origin will be constant and
-invariant as the time steps. When "spurious" paths are able to backtrack to the origin,
+invariant with $$N$$ as the time steps. When "spurious" paths are able to backtrack to the origin,
 the value of the probability density must become strictly smaller as, in a way, it would
 stay constant only by adding the (positive) contribution of the "spurious" paths.
 Therefore, for Borwein integrals, we do have that
