@@ -1,12 +1,27 @@
 ---
 layout: post
-title:  "Some title here"
+title:  "Borwein Integrals interpreted via Path Integrals"
 labels: [math, statistics]
 mathjax: true
 categories: [math, statistics]
 image: assets/images/doge.jpg
 ---
 
+Intuition is a powerful tool that arguably guided most of humankind's
+mathematical discoveries. Although we rely on it constantly,
+the cases when intuition spectacularly fails teach us valuable lessons.
+
+My favorite example about this is the (apparent) pattern one can see
+in Borwein integrals (from the father and son who popularized this
+kind of integrals, in
+[[Borwein and Borwein, 2001]](https://link.springer.com/article/10.1023%2FA%3A1011497229317) );
+my interest in them was rekindled by a very cool recent article
+by [Majumdar and Trizac](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.020201),
+where they link the strange properties of Borwein integrals to probability distributions
+associated with some random walks, and with an argument essentially about causality they
+are able to explain what is happening "under the hood".
+
+Let's then start playing with these interesting integrals.
 With just a tiny bit of effort, it is easy to prove that
 
 $$
@@ -29,29 +44,33 @@ $$
 \end{align*}
 $$
 
-Wow, this is quite unexpected! There seems to be a pattern here,
-but when a [Maple](https://en.wikipedia.org/wiki/Maple_(software))
-developer was playing with this kind of integrals he noticed
+Wow, there seems to be a pattern here,
+and one could maybe conjecture a handful of reasons why
+all these kinds of integrals **must** be equal to $$\pi$$.
+
+The plot thickens after a [Maple](https://en.wikipedia.org/wiki/Maple_(software))
+developer was playing with this kind of integrals and he noticed
 that
 
 $$
 \int_{-\infty}^\infty \diff x \,
 \sinc(x) \, \sinc(x/3)\, \dots \, \sinc(x/15)
-\approx \pi - 4.6 \times 10^{-11} < \pi
+\approx \pi - 4.6 \times 10^{-11} < \pi,
 $$
 
+i.e., the value of the integral is slightly less than $$\pi$$.
 While at first he attributed this problem to a bug in the code,
 indeed after a few days he realized that this is indeed the
 correct result. There are various papers about the calculation and
 interpretation of this kind of integrals
 ([[Borwein and Borwein, 2001]](https://link.springer.com/article/10.1023%2FA%3A1011497229317), [[Schmid, 2014]](https://www.ems-ph.org/journals/show_abstract.php?issn=0013-6018&vol=69&iss=1&rank=2)), but the
 one which in my opinion is most intuitive and has potential
-for generalization is
+for generalization is the above-mentioned
 [[Majumdar and Trizac, 2019]](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.020201), where they link Borwein integrals
 to random walks. Heavily borrowing from 
 [[Majumdar and Trizac, 2019]](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.020201), I will explain what is happening
 under the hood of these integrals with the tool that I think
-makes it clearer (especially to physicists): the path integral.
+makes essentially any kind of random process very clear (especially to physicists): the path integral.
 
 
 # Interpretation via a Path Integral
@@ -73,9 +92,40 @@ uniformly distributed, the parameters of the uniform distribution are allowed
 to change between jumps; in particular, the maximum distance that can be jumped
 with the first jump is $$a_1$$, with the second one is $$a_2$$, and so on.
 
+At any point in time, the state of the particle can be in general associated
+with the probability density of finding the particle at a certain position $$x$$;
+therefore, states of this system live in the vector space of integrable functions on
+the real axis.
+I will use the [bra-ket notation](https://en.wikipedia.org/wiki/Bra%E2%80%93ket_notation),
+and write then elements of this vector space as $$| \phi \rangle$$, scalar products
+as
 
+$$
+\langle \phi | \psi \rangle = \int_\mathbb{R} \diff x\, \phi(x) \psi(x). 
+$$
 
-We can associate to each jump a unitary operator $$\hat{S}(a)$$ in the following way:
+States labeled by positions, like $$x$$ and $$x_i$$, are states where we are definitely sure
+that the particle occupies a certain position, and are essentially Dirac deltas $$\delta(...)$$, i.e.,
+
+$$
+\langle \bar{x} | \psi \rangle = \int_\mathbb{R} \diff x \, \delta(x - \bar{x}) \psi(x) = \psi(\bar{x}),  
+$$
+
+and we can easily prove a completeness relation they satisfy:
+
+$$
+\int_\mathbb{R} \diff \tilde{x} \,
+\langle \phi  | \tilde{x} \rangle \langle \tilde{x} | \psi \rangle =
+\int_\mathbb{R} \diff \tilde{x} 
+\int_\mathbb{R} \diff x_1 
+\int_\mathbb{R} \diff x_2 \,
+\phi(x_1) \delta(x_1 - \tilde{x}) \delta(x_2 - \tilde{x}) \psi(x)
+= \langle \phi | \psi \rangle,
+$$
+
+for any pair of vectors $$\{ \vert \phi\rangle, \vert \psi\rangle\}$$.
+
+We can associate to each jump an operator $$\hat{S}(a)$$ in the following way:
 suppose that at some generic point in time the probability density for the 
 position $$x$$ of the particle is 
 $$
@@ -108,7 +158,9 @@ $$
 
 Notice that all of the factors appearing in the equation above are quite trivial 
 to calculate, as in them $$\hat{S}$$ acts only on states where the particle is for
-sure at a specific point. Therefore we have
+sure at a specific point. This should not be surprising, as it is essentially a manifestation
+of the [chain rule](https://en.wikipedia.org/wiki/Chain_rule_(probability)) for independent
+events. Therefore we have
 
 $$
 \langle x_i | \hat{S}(a) | x_{i-1} \rangle = \mathrm{U}_{ x_{i-1} - a}^{ x_{i-1} + a}(x_i)
@@ -138,28 +190,28 @@ $$
 By noticing that the Fourier transform of the uniform distribution is 
 
 $$
-\int \diff x \, \mathrm{U}_{ - a_i}^{ + a_i}(x) e^{- i k x} = \sinc(a_i k), 
+\int_\mathbb{R} \diff x \, \mathrm{U}_{ - a_i}^{ + a_i}(x) e^{- i k x} = \sinc(a_i k), 
 $$
 
 and that according to the [Convolution Theorem](https://en.wikipedia.org/wiki/Convolution_theorem)
 convolutions are mapped to products, we obtain
 
 $$
-p_N(x) = \int \frac{\diff k}{2\pi} \, \prod_{i=1}^N \sinc(a_i k) \, e^{- i k x},
+p_N(x) = \int_\mathbb{R} \frac{\diff k}{2\pi} \, \prod_{i=1}^N \sinc(a_i k) \, e^{- i k x},
 $$
 
 And so, in order to calculate the Borwein integrals we were originally interested in
 we just need to calculate
 
 $$
-2 \pi p_N(0) =  \int \diff k \, \prod_{i=1}^N \sinc(a_i k),
+2 \pi p_N(0) =  \int_\mathbb{R} \diff k \, \prod_{i=1}^N \sinc(a_i k),
 $$
 
 which in the "path-integral" picture we developed above means we need to integrate
 only over paths which start from the origin and, after $$N$$ steps, end up being in
 the origin again.
 
-Now, notice the following: what happens if we perform the substitution
+Now, let's ask ourselves the following question: what happens if we perform the substitution
 
 $$
 \mathrm{U}_{ - a_1}^{ + a_1}(x_1) \longrightarrow \frac{1}{2a_1},
@@ -236,15 +288,87 @@ $$
 &\frac{1}{3} + \frac{1}{5} + \dots + \frac{1}{15} \approx 1.022 > 1 \\
 &\Longrightarrow
 \int_{-\infty}^\infty \diff x \,
-\sinc(x) \, \sinc(x/3)\, \dots \, \sinc(x/15) < \pi,
+\sinc(x) \, \sinc(x/3)\, \dots \, \sinc(x/15) < \pi.
 \end{align*}
 $$
+
+# Generalizations
+
+Notice how the initially given form of Borwein integrals, with odd integers appearing in the
+arguments of $$\sinc$$ functions, was just smoke and mirrors: we could have chosen
+any sequence of $$a_i$$s, provided that
+
+$$
+a_1 > \sum_{i=2}^N a_i,
+$$
+
+and the value of the integral would still be $$\pi/a_1$$. Therefore, from the proof above,
+we might as well state that
+
+$$
+\int_{-\infty}^\infty \diff x \,
+\prod_{i=1}^N \sinc(a_i x)  = \pi,
+\qquad
+a_1 > \sum_{i=2}^N a_i, \quad
+a_i \in \mathbb{R}^+.
+$$
+
+In our proof also we never made use of the fact that the probability distribution of jumps after the first
+one was uniform: we just needed them to have finite support and to be correctly normalized. So, for instance,
+as the Fourier transform of Bessel functions of integer order $$\alpha$$ divided by their argument to the power
+of $$\alpha$$ satisfy these properties,
+we can also find the following nontrivial identities for Bessel functions:
+
+$$
+\int_{-\infty}^\infty \diff x \,
+\sinc(a_1 x)
+\prod_{i=2}^N
+\frac{2^i i! J_\alpha(a_i x)}{2 \pi (a_i x)^\alpha} = \pi,
+\qquad
+a_1 > \sum_{i=2}^N a_i, \quad
+a_i \in \mathbb{R}^+, \quad
+\alpha \in \mathbb{N}.
+$$
+
+![Fourier transforms of Besse](/assets/pics/borwein/ftbessel.png){: class="col-12" style="text-align: center"}
+
+...Or we can even get more general ones by mixing Bessel functions of different order: in the random walk picture,
+that would amount to allowing jumps after the first one to be characterized by the Fourier transform of the
+corresponding factor.
+
+Even more, by considering discrete jumps instead of continuously-distributed ones,
+one can introduce other trigonometric functions in the integrands. In 
+[[Majumdar and Trizac, 2019]](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.020201),
+they even find identities for multi-dimensional integrals and for other interesting mathematical problems,
+such as proving when
+
+$$
+\int_{-\infty}^{+\infty} \diff{k} \prod_{i=1}^N f_i(a_i k) \stackrel{?}{=}
+\sum_{k = -\infty}^{+\infty} \prod_{i=1}^N f_i(a_i k),
+$$
+
+by only using causal reasoning.
+
+# Conclusion
+
+I think I finally understood what is happening with Borwein integrals, and their connection with
+random walks is deeply interesting in my opinion. The fact that the probability distribution is affected
+by boundary effects (i.e, from the fact that the density is not constant over all the real numbers) only
+when information from the boundary is carried by some paths is a great idea, and for sure can be applied way beyond
+Borwein integrals.
+
+If you liked this post, I think a great thing to see next
+is the talk ["When random walkers help solving intriguing integrals"](https://youtu.be/aZ7Cyhzi9h8),
+by E. Trizac. For now, thanks a lot for reading!
+
+
+
 
 
 -------------------------------------------------------------------
 [^1]:
     Keeping in mind that the $$\sinc$$ function is the
     Fourier transform of the [rectangular function](https://en.wikipedia.org/wiki/Rectangular_function)
-    (and therefore of the [continuous uniform distribution](https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)),
+    (and therefore of the [continuous uniform distribution](https://en.wikipedia.org/wiki/Uniform_distribution_(continuous))),
     and that products are mapped to convolutions when Fourier-transformed, you might already see
     that this problem is not so unrelated after all!
