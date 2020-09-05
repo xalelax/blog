@@ -123,7 +123,7 @@ $$
 \int_\mathbb{R} \diff \tilde{x} 
 \int_\mathbb{R} \diff x_1 
 \int_\mathbb{R} \diff x_2 \,
-\phi(x_1) \delta(x_1 - \tilde{x}) \delta(x_2 - \tilde{x}) \psi(x)
+\phi(x_1) \delta(x_1 - \tilde{x}) \delta(x_2 - \tilde{x}) \psi(x_2)
 = \langle \phi | \psi \rangle,
 $$
 
