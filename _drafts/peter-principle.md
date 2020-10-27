@@ -65,8 +65,8 @@ promoted to a higher level? The authors of this model suggest two possible mecha
 Also, one can imagine a large number of strategies by which we choose an employee
 to promote at the next level; in the original model, the authors study three of them:
   *  *The Best* strategy: for any vacant position, promote the most competent employee
-     from the level immediately below. Intuitively, this is the strategy that is most
-     commonsensical, and that even in the real world is most frequently used.
+     from the level immediately below. This is the strategy that is most
+     commonsensical, and "in theory" the one people use in the real world.
   *  *The Worst* strategy: rather than picking the best candidate from the level below,
      pick instead the worst one. Intuitively... WTF?
   *  *The Random* strategy: whenever there is a vacant position, write down all the
@@ -217,7 +217,8 @@ forward would be, for instance:
      same level, so that we have at least some regression to the average.
   5. Here I studied only average quantities; what about distributions? Is the risk associated with each
      scenario comparable?
-  6. Can we model the effect of discrimination, by providing each agent with a "gender", "race", or similar?
+  6. Can we model the effect of discrimination, by providing each agent with a "gender", "race",
+     or similar attribute?
 
 # Conclusion
 
@@ -226,7 +227,9 @@ still, in my humble opinion, very questionable. For instance, it is extremely un
 is the only (or even the most important) thing that a company typically considers when deciding
 to hire or promote someone; the objective-looking metrics usually justifying this kind of decision
 are often only a façade for biases and discrimination. Typically, the more metrics, the less transparency
-is there.
+is there. Paradoxically, could we ameliorate the problem of discrimination in the workplace by randomizing
+hiring and promoting employees? Of course, I am not saying it could be the best solution, but would it improve on
+the current status quo?
 
 I think we still understand very little about what really motivates people, and how hierarchies really work;
 still, agent-based approaches can often be a good inspirations for further research. Also, they are
