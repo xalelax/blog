@@ -4,19 +4,14 @@ title: About
 permalink: /about/
 ---
 
-I'm Alessandro, a Data Scientist working at [Getsafe](https://www.hellogetsafe.com/).
+I'm Alessandro, a Quantum Software Engineer working at [ParityQC](https://parityqc.com/).
 
-I am a theoretical physicist, but I have been fascinated with technology
+I am a theoretical physicist by training, but I have been fascinated with technology
 since my childhood. Computers, especially, have been my top interest
-for a long time. I am extremely interested and have expertise in
-Data Analysis and Visualization. My resume can be
-found [here](/cv.pdf)
+for a long time. My current work lies at the intersection between 
+physics and computer science, in the realm of Quantum Computing.
+Aside from that, I worked as a data scientist, and continue cultivating this interest
+in my spare time. 
 
-I have been working for a while with Machine Learning and
-Data Science. I mostly do stuff with Keras and Tensorflow,
-and I'm experimenting with Arduino and IoT devices.
-I code mostly in C/C++ and Python. 
-
-I decided to start this blog to share with the world my views and the projects I am working on.
-
-I hope you get something useful from it!
+I decided to start this blog to share with the world my views and the projects
+I am working on; whomever you are, I hope you get something useful from it!
