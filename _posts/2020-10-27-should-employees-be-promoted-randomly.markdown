@@ -5,8 +5,6 @@ labels: [math, business]
 categories: [math, business]
 image: assets/images/peter_principle.png
 ---
-<br/><br/>
-
 > "In a hierarchy every employee tends to rise to his level of incompetence" <br/><br/>
 > -- Dr. Laurence J. Peter
 

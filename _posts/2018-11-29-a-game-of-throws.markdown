@@ -125,7 +125,7 @@ $$ A(N) = 6^N +\frac{5}{2} (3-2\sqrt{2})^N (1+\sqrt{2})
    	      +\frac{5}{2} (3+2\sqrt{2})^N (1-\sqrt{2}). \tag{3}$$
 
 Notice how we have an apparently complicated combination of sums of powers of irrational
-numbers, and yet $$A(N)$$ is always an integer number, because it satisfies Eq. (3)!
+numbers, and yet $$A(N)$$ is always an integer number, because it satisfies Eq. (2)!
 Small wonders of mathematics ¯\\_(ツ)_/¯
 
 

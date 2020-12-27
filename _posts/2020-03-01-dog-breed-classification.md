@@ -6,8 +6,6 @@ categories: [deep learning, machine learning]
 image: assets/images/doge.jpg
 ---
 
-# Introduction
-
 In this post, I want to showcase how simple it has become to perform transfer learning
 with the help of modern libraries. I will use TensorFlow, but the situation looks pretty
 similar with other frameworks. In particular, I will load a Dataset from the TensorFlow

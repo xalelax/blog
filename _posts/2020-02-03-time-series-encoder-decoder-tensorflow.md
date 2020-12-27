@@ -6,8 +6,6 @@ categories: [deep learning, machine learning]
 image: assets/images/encdec.png
 ---
 
-# Introduction
-
 In this post
 I want to illustrate a problem I have been thinking about in time series
 forecasting, while simultaneously
@@ -60,7 +58,7 @@ unzip Bike-Sharing-Dataset.zip -d bike_data
 
 Our goal is to be able to predict the total bike usage for
 the week following prediction time. For the sake of simplicity,
-let's skip a lot of data cleaning/feature engineering steps one could apply to this dataset,
+let's skip a lot of data cleaning/feature engineering steps one should apply to this dataset,
 and just load it via the following:
 
 ```python
@@ -100,7 +98,8 @@ def onehot_encode_integers(df, excluded_cols):
     return df_encoded
 
 # cnt will be target of regression, but also a feature:
-# it needs to be normalized
+# it needs to be normalized. This is not the correct way to do it,
+# as it leads to information leakage from test to training set.
 def normalize_cnt(df):
     df = df.copy()
     df['cnt'] = df['cnt'] / df['cnt'].max()
