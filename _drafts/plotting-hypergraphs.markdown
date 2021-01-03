@@ -9,7 +9,7 @@ image: assets/images/hypergraphs.png
 Graphs are awesome, hypergraphs are hyperawesome! Hypergraphs are a generalization of graphs
 where one relaxes the requirement for edges to connect just two nodes and allows instead 
 edges to connect multiple nodes. They are a very natural framework in which to formulate and solve
-many problems in a wide variety of fields, ranging from genetics to social sciences, physics, and much more!
+problems in a wide variety of fields, ranging from genetics to social sciences, physics, and more!
 But whereas for manipulating and visualizing graphs there are many mature Python libraries, 
 the same cannot be said for hypergraphs.
 
@@ -17,11 +17,10 @@ the same cannot be said for hypergraphs.
 
 
 I recently needed to visualize some hypergraphs and could not find any library which satisfied me;
-moreover, as far as I could see, all of them were representing edges as Euler diagrams (i.e., like the one displayed 
-above).
+moreover, as far as I could see, all of them were representing hypergraphs via Euler diagrams 
+(i.e., like the hand-drawn hypergraph above).
 Unfortunately this method was not producing good plots for my use case; what I ended up doing was to represent
-a hypergraph as a collection of graphs, and plotting them via the awesome `networkx` library,
-which in principle only works for graphs. 
+a hypergraph as a collection of graphs, and plotting them via the awesome `networkx` library.
 
 I decided to write about my approach to plotting hypergraphs,
 as it produces quite interesting plots for the kind of data I am looking at lately (essentially 
@@ -65,7 +64,7 @@ In the plot above we can read, for instance, the edge `(a,b,d)` from the three r
 
 While the fewer extra nodes caused by a partial star expansion make the second plot slightly more readable, 
 both of the plots above are still deeply unsatisfying.
-My main issues with these visualizations (and similar ones I ended up producing while experimenting on this) 
+My main issues with these visualizations (and similar ones I ended up producing while experimenting on this topic) 
 are the following:
  1.  There is too much information on a single image, and far too many overlapping 
      lines; this makes the plot hard to read, and potentially useless.
@@ -112,7 +111,10 @@ curvy lines via the `connectionstyle` argument if `g` was instead a `networkx.Gr
 
 The fact that the red nodes (which are the extra nodes obtained by star expansion) have always 
 the same order in each subplot makes this plot very easy to read. It is still not perfect, but 
-arguably much more readable than our earlier attempts.
+arguably much more readable than our earlier attempts. For instance, it is obvious from the
+rightmost subplot that there is only one edge of order 4, and it is `(a,b,c,d)`, and from
+the subplot in the middle it is easy to see that the only edges of order 3 are `(a,b,e)`, 
+`(a,b,d)`, and `(a,c,d)`.
 
 # Other examples with random hypergraphs
 
@@ -133,11 +135,11 @@ even when a planar layout was not achievable.
 
 # Conclusion
 
-The procedure illustrated above can be quite helpful in plotting hypergraphs via a well maintained
-Python library, `networkx`. Especially in contexts such as quantum physics, statistical mechanics,
-and so on, where the order of a hyperedge matters, this could be a helpful procedure.
+The procedure illustrated above can be quite helpful in plotting hypergraphs via `networkx`. 
+Especially in contexts such as quantum physics, statistical mechanics,
+and so on, where the order of a hyperedge matters, this could be a helpful visualization.
 
-A drawback of the proposed procedure could be that in each of the subplots the position 
+A drawback of the proposed scheme could be that in each of the subplots the position 
 of the nodes can vary in general; this could be trivially solved by arbitrarily fixing 
 the `pos` argument in the code for `plot_hypergraph_components`, but maybe problem-specific
 properties can help in making a meaningful choice for it.
