@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/bbqtalk"
+  to = "https://xalelax.github.io/pydata-bbq-5-talk"
+  status = 301
+  force = true
